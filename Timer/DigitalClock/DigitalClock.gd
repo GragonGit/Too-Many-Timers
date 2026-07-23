@@ -7,10 +7,22 @@ signal reset
 
 var seconds0: int = 0
 var seconds1: int = 0
+var is_pressed: bool = false
 
 func press_reset_button_area2d(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		reset.emit()
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.is_pressed():
+			is_pressed = true
+			play("press")
+			reset.emit()
+		elif event.is_released():
+			is_pressed = false
+			play("release")
+
+func on_mouse_exited_reset_button_area2d() -> void:
+	if is_pressed:
+		is_pressed = false
+		play("release")
 
 func on_value_changed(value: float) -> void:
 	seconds0 = int(value) % 10
