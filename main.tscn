@@ -9,7 +9,7 @@
 [node name="Scene" type="Node" parent="." unique_id=25121995]
 
 [node name="DigitalClock" parent="Scene" unique_id=548302011 instance=ExtResource("1_ig7tw")]
-position = Vector2(496, 280)
+position = Vector2(72, 45)
 
 [node name="Timers" type="Node" parent="Scene" unique_id=1373838740]
 script = ExtResource("2_h2yge")

@@ -9,7 +9,6 @@
 size = Vector2(12, 8)
 
 [node name="DigitalClock" type="AnimatedSprite2D" unique_id=548302011]
-scale = Vector2(8, 8)
 sprite_frames = ExtResource("1_38c5i")
 animation = &"release"
 script = ExtResource("2_sf7an")
