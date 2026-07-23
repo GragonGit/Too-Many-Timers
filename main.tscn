@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b1mm3o80v4b8y"]
 
-[ext_resource type="PackedScene" uid="uid://kmmjj2ittgkw" path="res://timer/digital_clock/digital-clock.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://kmmjj2ittgkw" path="res://Timer/DigitalClock/DigitalClock.tscn" id="1_ig7tw"]
 
 [node name="Game" type="Node" unique_id=884841435]
 

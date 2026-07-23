@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c00tni14sfxta"
-path="res://.godot/imported/digital-clock.png-522a0c2114eb2aeff1eac186f722256b.ctex"
+uid="uid://br4xjpvvl6tns"
+path="res://.godot/imported/DigitalClock.png-8266536b678984c0a1e1cf5c5c8bd93b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Timer/digital_clock/digital-clock.png"
-dest_files=["res://.godot/imported/digital-clock.png-522a0c2114eb2aeff1eac186f722256b.ctex"]
+source_file="res://Timer/DigitalClock/DigitalClock.png"
+dest_files=["res://.godot/imported/DigitalClock.png-8266536b678984c0a1e1cf5c5c8bd93b.ctex"]
 
 [params]
 

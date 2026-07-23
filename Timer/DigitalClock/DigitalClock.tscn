@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://kmmjj2ittgkw"]
 
-[ext_resource type="SpriteFrames" uid="uid://dg215tlx0gjnu" path="res://timer/digital_clock/digital-clock-anim.tres" id="1_38c5i"]
-[ext_resource type="Script" uid="uid://m2i3oij8shxy" path="res://timer/digital_clock/digital_clock.gd" id="2_sf7an"]
-[ext_resource type="Script" uid="uid://dbwsyn35pn7su" path="res://timer/BaseTimer.gd" id="3_yja6s"]
+[ext_resource type="SpriteFrames" uid="uid://dg215tlx0gjnu" path="res://Timer/DigitalClock/DigitalClockAnim.tres" id="1_38c5i"]
+[ext_resource type="Script" uid="uid://m2i3oij8shxy" path="res://Timer/DigitalClock/DigitalClock.gd" id="2_sf7an"]
+[ext_resource type="Script" uid="uid://dbwsyn35pn7su" path="res://Timer/BaseTimer.gd" id="3_yja6s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(13, 6.5)
