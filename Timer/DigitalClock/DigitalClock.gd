@@ -15,7 +15,6 @@ func press_reset_button_area2d(_viewport: Node, event: InputEvent, _shape_idx: i
 func on_value_changed(value: float) -> void:
 	seconds0 = int(value) % 10
 	seconds1 = int(value) / 10
-	print("Value " + str(value) + " sec " + str(seconds1))
 	queue_redraw()
 
 func _draw() -> void:
