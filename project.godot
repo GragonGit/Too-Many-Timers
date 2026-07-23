@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 ScoreManager="*uid://uoqhi8mhdwdx"
-GameManager="*uid://b7qgmus60soeh"
+GameManager="*uid://bylriao8rqpdn"
 
 [display]
 

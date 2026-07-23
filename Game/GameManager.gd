@@ -2,7 +2,7 @@ extends Node
 
 const TICK_INTERVAL: float = 1.0
 
-@export var timers: Array[PackedScene] = []
+@export var timers: Array[TimerSpawnData] = []
 @export var spawn_parent: Node = null
 @export var spawn_interval: int = 15
 
@@ -58,7 +58,6 @@ func _reset_available_timers() -> void:
 
 
 func _spawn_random_timer() -> void:
-	print(_available_indices.size())
 	if _available_indices.is_empty():
 		return
 
@@ -66,11 +65,20 @@ func _spawn_random_timer() -> void:
 	var timer_index: int = _available_indices[random_pos]
 	_available_indices.remove_at(random_pos)
 
-	var timer_scene: PackedScene = timers[timer_index]
-	var timer: Node = timer_scene.instantiate()
+	var spawn_data: TimerSpawnData = timers[timer_index]
+	if spawn_data == null || spawn_data.timer_scene == null:
+		push_warning("TimerSpawnData an Index %d ist unvollstaendig." % timer_index)
+		return
+
+	var timer: Node = spawn_data.timer_scene.instantiate()
 
 	var parent: Node = spawn_parent if spawn_parent else self
 	parent.add_child(timer)
+
+	if "position" in timer:
+		timer.position = spawn_data.position
+	else:
+		push_warning("Timer-Node hat keine 'position'-Property (kein Node2D/Control).")
 
 	_spawned_timers.append(timer)
 
