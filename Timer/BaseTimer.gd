@@ -22,7 +22,7 @@ var _is_game_over: bool = false
 # !SECTION
 # SECTION Godot Lifecycle
 func _ready() -> void:
-	current_value = reset_value
+	_set_value(reset_value)
 	_is_running = !start_paused
 	_is_game_over = false
 
