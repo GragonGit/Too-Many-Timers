@@ -11,6 +11,7 @@ const BAR_WIDTH: float = 2.0
 const BAR_HEIGHT: float = 10.0
 
 func press_reset_button_area2d(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if GameManager._is_game_paused: return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.is_pressed():
 			is_pressed = true

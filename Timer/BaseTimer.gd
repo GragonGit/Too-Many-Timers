@@ -17,33 +17,29 @@ var current_value: float = 0.0
 
 var _accumulator: float = 0.0
 var _is_running: bool = true
-var _is_game_over: bool = false
 
 # !SECTION
 # SECTION Godot Lifecycle
 func _ready() -> void:
 	_set_value(reset_value)
 	_is_running = !start_paused
-	_is_game_over = false
 
 
 func _process(delta: float) -> void:
-	if !_is_running || _is_game_over:
-		return
+	if !is_active(): return
 
 	_accumulator += delta
 	while _accumulator >= tick_interval:
 		_accumulator -= tick_interval
 		_tick()
 
-		if _is_game_over:
+		if GameManager._is_game_over:
 			break
 
 # !SECTION
 # SECTION API
 func press_reset_button() -> void:
-	if _is_game_over:
-		return
+	if !is_active(): return
 	_on_reset_pressed()
 
 
@@ -52,12 +48,11 @@ func pause() -> void:
 
 
 func resume() -> void:
-	if !_is_game_over:
-		_is_running = true
+	if !is_active(): return
+	_is_running = true
 
 
 func restart() -> void:
-	_is_game_over = false
 	_accumulator = 0.0
 	_is_running = !start_paused
 	_set_value(reset_value)
@@ -67,12 +62,8 @@ func get_value() -> float:
 	return current_value
 
 
-func is_game_over() -> bool:
-	return _is_game_over
-
-
-func is_running() -> bool:
-	return _is_running && !_is_game_over
+func is_active() -> bool:
+	return _is_running && GameManager.is_game_active()
 
 # !SECTION
 # SECTION Virtual Methods
@@ -92,25 +83,15 @@ func _on_reset_pressed() -> void:
 	ScoreManager.add_score(_calculate_score(old_value))
 	reset_pressed.emit(current_value)
 
-# NOTE - It is recommended to _overite calculate_next_value() and _should_trigger_game_over() instead
+# NOTE - It is recommended to _overwrite calculate_next_value() and _should_trigger_game_over() instead
 func _tick() -> void:
 	var next_value: float = _calculate_next_value(current_value)
 	_set_value(next_value)
 
 	if _should_trigger_game_over(current_value):
-		_trigger_game_over()
+		GameManager.game_over()
 
-# !SECTION
-# SECTION Helper Methods
 func _set_value(new_value: float) -> void:
 	current_value = new_value
 	value_changed.emit(current_value)
-
-
-func _trigger_game_over() -> void:
-	if _is_game_over: return
-
-	_is_game_over = true
-	_is_running = false
-	game_over.emit()
 # !SECTION

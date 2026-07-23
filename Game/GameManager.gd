@@ -9,6 +9,7 @@ const TICK_INTERVAL: float = 1.0
 var current_value: float = 0.0
 var _accumulator: float = 0.0
 var _is_game_over: bool = false
+var _is_game_paused: bool = false
 var _last_spawn: float = 0.0
 
 var _available_indices: Array[int] = []
@@ -20,8 +21,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if _is_game_over:
-		return
+	if !is_game_active(): return
+
 	_accumulator += delta
 	while _accumulator >= TICK_INTERVAL:
 		_accumulator -= TICK_INTERVAL
@@ -30,6 +31,9 @@ func _process(delta: float) -> void:
 			break
 
 
+func is_game_active() -> bool:
+	return !_is_game_over && !_is_game_paused
+
 func restart() -> void:
 	current_value = 0.0
 	_is_game_over = false
@@ -37,6 +41,11 @@ func restart() -> void:
 	_last_spawn = 0.0
 	_clear_spawned_timers()
 	_reset_available_timers()
+
+func game_over() -> void:
+	if _is_game_over: return
+	_is_game_over = true
+	print("Game Over!")
 
 
 func _tick() -> void:
