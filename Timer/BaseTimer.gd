@@ -52,14 +52,14 @@ func pause() -> void:
 
 
 func resume() -> void:
-	if not _is_game_over:
+	if !_is_game_over:
 		_is_running = true
 
 
 func restart() -> void:
 	_is_game_over = false
 	_accumulator = 0.0
-	_is_running = not start_paused
+	_is_running = !start_paused
 	_set_value(reset_value)
 
 
@@ -72,7 +72,7 @@ func is_game_over() -> bool:
 
 
 func is_running() -> bool:
-	return _is_running and not _is_game_over
+	return _is_running && !_is_game_over
 
 # !SECTION
 # SECTION Virtual Methods
@@ -109,3 +109,4 @@ func _trigger_game_over() -> void:
 	_is_game_over = true
 	_is_running = false
 	game_over.emit()
+# !SECTION
