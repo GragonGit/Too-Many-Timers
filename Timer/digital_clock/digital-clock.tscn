@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://kmmjj2ittgkw"]
+
+[ext_resource type="SpriteFrames" uid="uid://dg215tlx0gjnu" path="res://timer/digital_clock/digital-clock-anim.tres" id="1_38c5i"]
+[ext_resource type="Script" uid="uid://m2i3oij8shxy" path="res://timer/digital_clock/digital_clock.gd" id="2_sf7an"]
+[ext_resource type="Script" uid="uid://dbwsyn35pn7su" path="res://timer/BaseTimer.gd" id="3_yja6s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(13, 6.5)
+
+[node name="DigitalClock" type="AnimatedSprite2D" unique_id=548302011]
+scale = Vector2(8, 8)
+sprite_frames = ExtResource("1_38c5i")
+animation = &"release"
+script = ExtResource("2_sf7an")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=448561039]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1600830159]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="BaseTimer" type="Node" parent="." unique_id=174428712]
+script = ExtResource("3_yja6s")
+metadata/_custom_type_script = "uid://dbwsyn35pn7su"
+
+[connection signal="reset" from="." to="BaseTimer" method="press_reset_button"]
+[connection signal="input_event" from="Area2D" to="." method="press_reset_button_area2d"]
