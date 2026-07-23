@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b1mm3o80v4b8y"]
 
 [ext_resource type="PackedScene" uid="uid://kmmjj2ittgkw" path="res://Timer/DigitalClock/DigitalClock.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://46hvkn8vq4lr" path="res://UI/UI.tscn" id="2_0xm2m"]
 
 [node name="Game" type="Node" unique_id=884841435]
 
@@ -8,3 +9,6 @@
 
 [node name="DigitalClock" parent="Scene" unique_id=548302011 instance=ExtResource("1_ig7tw")]
 position = Vector2(496, 280)
+
+[node name="Ui" parent="." unique_id=703720092 instance=ExtResource("2_0xm2m")]
+mouse_filter = 2

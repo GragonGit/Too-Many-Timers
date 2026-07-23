@@ -83,9 +83,13 @@ func _calculate_next_value(value: float) -> float:
 func _should_trigger_game_over(value: float) -> bool:
 	return value <= 0.0
 
+func _calculate_score(old_value: float) -> int:
+	return roundi(current_value - old_value)
 
 func _on_reset_pressed() -> void:
+	var old_value = current_value
 	_set_value(reset_value)
+	ScoreManager.add_score(_calculate_score(old_value))
 	reset_pressed.emit(current_value)
 
 # NOTE - It is recommended to _overite calculate_next_value() and _should_trigger_game_over() instead
