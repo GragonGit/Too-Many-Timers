@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cd65nnha4bpxe"]
+
+[ext_resource type="SpriteFrames" uid="uid://b3pl2b1m4h6j0" path="res://Timer/BufferTimer/BufferTimerAnim.tres" id="1_4vlbq"]
+[ext_resource type="Script" uid="uid://mt0g810jntvs" path="res://Timer/BufferTimer/BufferTimerUI.gd" id="2_emr4l"]
+[ext_resource type="Script" uid="uid://c6nuhbir0x3q6" path="res://Timer/BufferTimer/BufferTimer.gd" id="3_emr4l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_emr4l"]
+size = Vector2(6, 5)
+
+[node name="BufferTimer" type="AnimatedSprite2D" unique_id=673962843]
+scale = Vector2(8, 8)
+sprite_frames = ExtResource("1_4vlbq")
+animation = &"release"
+script = ExtResource("2_emr4l")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=514671701]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1496852432]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_emr4l")
+
+[node name="BufferTimer" type="Node" parent="." unique_id=1031247103]
+script = ExtResource("3_emr4l")
+reset_value = 10.0
+tick_interval = 3.0
+metadata/_custom_type_script = "uid://c6nuhbir0x3q6"
+
+[connection signal="reset" from="." to="BufferTimer" method="press_reset_button"]
+[connection signal="input_event" from="Area2D" to="." method="press_reset_button_area2d"]
+[connection signal="value_changed" from="BufferTimer" to="." method="on_value_changed"]
