@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://dg215tlx0gjnu"]
 
-[ext_resource type="Texture2D" uid="uid://c00tni14sfxta" path="res://timer/digital_clock/digital-clock.png" id="1_fun3s"]
+[ext_resource type="Texture2D" uid="uid://c00tni14sfxta" path="res://Timer/digital_clock/digital-clock.png" id="1_fun3s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c76j7"]
 atlas = ExtResource("1_fun3s")
