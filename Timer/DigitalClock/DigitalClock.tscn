@@ -2,7 +2,7 @@
 
 [ext_resource type="SpriteFrames" uid="uid://dg215tlx0gjnu" path="res://Timer/DigitalClock/DigitalClockAnim.tres" id="1_38c5i"]
 [ext_resource type="Script" uid="uid://m2i3oij8shxy" path="res://Timer/DigitalClock/DigitalClockUI.gd" id="2_sf7an"]
-[ext_resource type="Texture2D" uid="uid://bjeum4yq2anuj" path="res://Timer/DigitalClock/Digits.png" id="3_tsvx5"]
+[ext_resource type="Texture2D" uid="uid://bjeum4yq2anuj" path="res://UI/ScoreDisplay/Digits.png" id="3_tsvx5"]
 [ext_resource type="Script" uid="uid://dbwsyn35pn7su" path="res://Timer/BaseTimer.gd" id="3_yja6s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
