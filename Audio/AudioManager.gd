@@ -4,6 +4,8 @@ extends Node
 @onready var tick_music_scaled: AudioStreamPlayer = $TickMusicScaled
 @onready var times_up: AudioStreamPlayer = $TimesUp
 @onready var take_your_time: AudioStreamPlayer = $TakeYourTime
+@onready var click: AudioStreamPlayer = $Click
+@onready var clack: AudioStreamPlayer = $Clack
 @onready var bus_idx := AudioServer.get_bus_index(tick_music.bus)
 @onready var initial_db := AudioServer.get_bus_volume_db(bus_idx)
 @onready var pitch_shift_effect: AudioEffectPitchShift = AudioServer.get_bus_effect(bus_idx, 0)
@@ -84,3 +86,9 @@ func on_game_over() -> void:
 
 func _apply_bus_volume(value: float) -> void:
 	AudioServer.set_bus_volume_db(bus_idx, value)
+
+func on_button_down() -> void:
+	click.play()
+
+func on_button_up() -> void:
+	clack.play()

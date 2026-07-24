@@ -5,6 +5,8 @@
 [ext_resource type="AudioStream" uid="uid://ch2541atifhuj" path="res://Audio/Music/ThePressureIsRising.wav" id="3_2l8vh"]
 [ext_resource type="AudioStream" uid="uid://8rh1mkh85htw" path="res://Audio/Music/TimesUp.wav" id="3_5m6nf"]
 [ext_resource type="AudioStream" uid="uid://b8nj2gp0ybl3q" path="res://Audio/Music/TakeYourTime.wav" id="5_nmk5h"]
+[ext_resource type="AudioStream" uid="uid://cpounwodpbubt" path="res://Audio/Effects/ButtonClickDown.wav" id="6_o44l8"]
+[ext_resource type="AudioStream" uid="uid://b4cbhpqvo1gua" path="res://Audio/Effects/ButtonClickUp.wav" id="7_i3n6d"]
 
 [node name="AudioManager" type="Node" unique_id=691285824]
 script = ExtResource("1_l0aok")
@@ -25,3 +27,13 @@ bus = &"Music"
 [node name="TakeYourTime" type="AudioStreamPlayer" parent="." unique_id=1662350707]
 stream = ExtResource("5_nmk5h")
 bus = &"Music"
+
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=1756488804]
+stream = ExtResource("6_o44l8")
+volume_db = -10.0
+pitch_scale = 0.8
+
+[node name="Clack" type="AudioStreamPlayer" parent="." unique_id=1979178741]
+stream = ExtResource("7_i3n6d")
+volume_db = -10.0
+pitch_scale = 0.8
