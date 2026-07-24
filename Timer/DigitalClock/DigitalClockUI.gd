@@ -20,7 +20,11 @@ func press_reset_button_area2d(_viewport: Node, event: InputEvent, _shape_idx: i
 			is_pressed = false
 			play("release")
 
+func _on_area_2d_mouse_entered() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+
 func on_mouse_exited_reset_button_area2d() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 	if is_pressed:
 		is_pressed = false
 		play("release")
