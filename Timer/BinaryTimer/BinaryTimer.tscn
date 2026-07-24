@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b5ntig5vpx5h3"]
+
+[ext_resource type="SpriteFrames" uid="uid://cpotnlpy3i41u" path="res://Timer/BinaryTimer/BinaryTimer.tres" id="1_n23g6"]
+[ext_resource type="Script" uid="uid://76h345xlas6w" path="res://Timer/BinaryTimer/BinaryTimerUI.gd" id="2_oqvf8"]
+[ext_resource type="Script" uid="uid://dbwsyn35pn7su" path="res://Timer/BaseTimer.gd" id="4_t83h2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(12, 8)
+
+[node name="BinaryTimer" type="AnimatedSprite2D" unique_id=548302011]
+sprite_frames = ExtResource("1_n23g6")
+animation = &"release"
+script = ExtResource("2_oqvf8")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=448561039]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1600830159]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="BaseTimer" type="Node" parent="." unique_id=174428712]
+script = ExtResource("4_t83h2")
+reset_value = 15.0
+metadata/_custom_type_script = "uid://dbwsyn35pn7su"
+
+[connection signal="reset" from="." to="BaseTimer" method="press_reset_button"]
+[connection signal="input_event" from="Area2D" to="." method="press_reset_button_area2d"]
+[connection signal="mouse_exited" from="Area2D" to="." method="on_mouse_exited_reset_button_area2d"]
+[connection signal="value_changed" from="BaseTimer" to="." method="on_value_changed"]

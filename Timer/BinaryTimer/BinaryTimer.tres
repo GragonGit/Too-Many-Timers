@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cpotnlpy3i41u"]
+
+[ext_resource type="Texture2D" uid="uid://oej3d0msrf5" path="res://Timer/BinaryTimer/BinaryTimer.png" id="1_xkdrw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_565sx"]
+atlas = ExtResource("1_xkdrw")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fun3s"]
+atlas = ExtResource("1_xkdrw")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_565sx")
+}],
+"loop": 0,
+"name": &"press",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fun3s")
+}],
+"loop": 0,
+"name": &"release",
+"speed": 5.0
+}]
