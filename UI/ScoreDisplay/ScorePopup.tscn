@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://iw3eujt02ulm"]
+
+[ext_resource type="Script" uid="uid://e4fqysu3t38p" path="res://UI/ScoreDisplay/ScorePopup.gd" id="1_qqotp"]
+[ext_resource type="Script" uid="uid://viwv3nmt732c" path="res://Timer/DigitsRenderer.gd" id="2_vg8fj"]
+[ext_resource type="Texture2D" uid="uid://bjeum4yq2anuj" path="res://UI/ScoreDisplay/Digits.png" id="3_vg8fj"]
+
+[node name="ScorePopup" type="Node2D" unique_id=983549210]
+script = ExtResource("1_qqotp")
+rise_distance = 50.0
+
+[node name="DigitsRenderer" type="Node2D" parent="." unique_id=1768480183]
+script = ExtResource("2_vg8fj")
+digits_texture = ExtResource("3_vg8fj")
+min_digits = 1
+metadata/_custom_type_script = "uid://viwv3nmt732c"
