@@ -15,4 +15,3 @@ position = Vector2(288, 168)
 script = ExtResource("2_h2yge")
 
 [node name="Ui" parent="." unique_id=703720092 instance=ExtResource("2_0xm2m")]
-mouse_filter = 2

@@ -6,6 +6,7 @@ const TICK_INTERVAL: float = 1.0
 @export var spawn_parent: Node = null
 @export var spawn_interval: int = 15
 @export var tick_scale_increase: float = 0.1
+var main_timer: Node
 
 var current_value: float = 0.0
 var current_value_scaled: float = 0.0
@@ -46,24 +47,31 @@ func _process(delta: float) -> void:
 func is_game_active() -> bool:
 	return !_is_game_over && !_is_game_paused
 
-func restart() -> void:
+func reset() -> void:
 	current_value = 0.0
 	current_value_scaled = 0.0
-	_is_game_over = false
 	_tick_scale = 1.0
 	_accumulator = 0.0
 	_accumulator_scaled = 0.0
 	_last_spawn = 0.0
-	_clear_spawned_timers()
+	await _clear_spawned_timers()
 	_reset_available_timers()
 	AudioManager.tick_speed(_tick_scale)
-	AudioManager.start_tick_music()
+	main_timer.connect("reset", retry)
 
 func game_over() -> void:
 	if _is_game_over: return
 	_is_game_over = true
 	AudioManager.on_game_over()
-	print("Game Over!")
+	await wait(4)
+	reset()
+
+func retry() -> void:
+	main_timer.disconnect("reset", retry)
+	AudioManager.start_tick_music()
+	_is_game_over = false
+	main_timer.reset.emit()
+	ScoreManager.reset_score()
 
 func game_pause(paused: bool) -> void:
 	_is_game_paused = paused
@@ -124,5 +132,9 @@ func _spawn_random_timer() -> void:
 func _clear_spawned_timers() -> void:
 	for timer in _spawned_timers:
 		if is_instance_valid(timer):
+			await wait(1)
 			timer.queue_free()
 	_spawned_timers.clear()
+
+func wait(seconds: float) -> void:
+	await get_tree().create_timer(seconds).timeout

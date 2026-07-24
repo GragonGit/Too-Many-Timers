@@ -4,6 +4,9 @@ signal reset
 
 var is_pressed: bool = false
 
+func _ready() -> void:
+	GameManager.main_timer = self
+
 func press_reset_button_area2d(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if GameManager._is_game_paused: return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
