@@ -2,11 +2,21 @@
 
 [ext_resource type="Script" uid="uid://1v35yr3wkf1x" path="res://Audio/AudioManager.gd" id="1_l0aok"]
 [ext_resource type="AudioStream" uid="uid://dmchgj5w6ur03" path="res://Audio/TheCountingStarts.wav" id="2_4apyq"]
+[ext_resource type="AudioStream" uid="uid://ch2541atifhuj" path="res://Audio/ThePressureIsRising.wav" id="3_2l8vh"]
+[ext_resource type="AudioStream" uid="uid://8rh1mkh85htw" path="res://Audio/TimesUp.wav" id="3_5m6nf"]
 
 [node name="AudioManager" type="Node" unique_id=691285824]
 script = ExtResource("1_l0aok")
 
 [node name="TickMusic" type="AudioStreamPlayer" parent="." unique_id=335521024]
 stream = ExtResource("2_4apyq")
-volume_db = -20.0
+bus = &"Music"
+
+[node name="TickMusicScaled" type="AudioStreamPlayer" parent="." unique_id=1234676687]
+stream = ExtResource("3_2l8vh")
+bus = &"Music"
+
+[node name="TimesUp" type="AudioStreamPlayer" parent="." unique_id=555481434]
+stream = ExtResource("3_5m6nf")
+volume_db = 15.0
 bus = &"Music"

@@ -62,7 +62,7 @@ func restart() -> void:
 func game_over() -> void:
 	if _is_game_over: return
 	_is_game_over = true
-	AudioManager.stop_tick_music()
+	AudioManager.on_game_over()
 	print("Game Over!")
 
 func game_pause(paused: bool) -> void:
