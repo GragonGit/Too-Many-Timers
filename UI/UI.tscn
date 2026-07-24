@@ -40,6 +40,7 @@ mouse_filter = 2
 texture = ExtResource("8_d050y")
 
 [node name="Score" type="Node2D" parent="." unique_id=466115385]
+modulate = Color(0.90588236, 0.34901962, 0.32156864, 1)
 position = Vector2(328, 273)
 script = ExtResource("2_d050y")
 digits_texture = ExtResource("2_byuxr")
@@ -48,6 +49,7 @@ min_digits = 16
 metadata/_custom_type_script = "uid://viwv3nmt732c"
 
 [node name="HighScore" type="Node2D" parent="." unique_id=1594378051]
+modulate = Color(0.90588236, 0.34901962, 0.32156864, 1)
 position = Vector2(328, 290)
 script = ExtResource("2_d050y")
 digits_texture = ExtResource("2_byuxr")
