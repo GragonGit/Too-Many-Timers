@@ -36,6 +36,6 @@ func on_value_changed(value: float) -> void:
 
 func _draw() -> void:
 	var src0 := Rect2(Vector2(seconds0 * digit_size.x, 0), Vector2(digit_size))
-	draw_texture_rect_region(digits_texture, Rect2(Vector2(1, -1), Vector2(digit_size)), src0)
+	draw_texture_rect_region(digits_texture, Rect2(Vector2(1, 12), Vector2(digit_size)), src0)
 	var src1 := Rect2(Vector2(seconds1 * digit_size.x, 0), Vector2(digit_size))
-	draw_texture_rect_region(digits_texture, Rect2(Vector2(-4, -1), Vector2(digit_size)), src1)
+	draw_texture_rect_region(digits_texture, Rect2(Vector2(-7, 12), Vector2(digit_size)), src1)
