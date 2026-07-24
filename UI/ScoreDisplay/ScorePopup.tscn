@@ -6,7 +6,7 @@
 
 [node name="ScorePopup" type="Node2D" unique_id=983549210]
 script = ExtResource("1_qqotp")
-rise_distance = 50.0
+rise_distance = 32.0
 
 [node name="DigitsRenderer" type="Node2D" parent="." unique_id=1768480183]
 script = ExtResource("2_vg8fj")

@@ -24,6 +24,7 @@ shape = SubResource("RectangleShape2D_emr4l")
 [node name="CollatzTimer" type="Node" parent="." unique_id=1031247103]
 script = ExtResource("3_0ao6s")
 reset_value = 19.0
+tick_interval = 1.2
 metadata/_custom_type_script = "uid://c6nuhbir0x3q6"
 
 [connection signal="reset" from="." to="CollatzTimer" method="press_reset_button"]
