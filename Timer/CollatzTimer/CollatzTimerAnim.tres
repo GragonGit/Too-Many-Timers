@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://debqh7e0a1m5f"]
+
+[ext_resource type="Texture2D" uid="uid://bfxj74cs7s2w0" path="res://Timer/CollatzTimer/CollatzTimer.png" id="1_nagq2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nccy"]
+atlas = ExtResource("1_nagq2")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tr1jb"]
+atlas = ExtResource("1_nagq2")
+region = Rect2(0, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nccy")
+}],
+"loop": 0,
+"name": &"press",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tr1jb")
+}],
+"loop": 0,
+"name": &"release",
+"speed": 5.0
+}]
