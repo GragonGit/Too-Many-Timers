@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dbwsyn35pn7su" path="res://Timer/BaseTimer.gd" id="4_t83h2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(12, 8)
+size = Vector2(10, 22)
 
 [node name="BinaryTimer" type="AnimatedSprite2D" unique_id=548302011]
 sprite_frames = ExtResource("1_n23g6")
@@ -15,7 +15,7 @@ script = ExtResource("2_oqvf8")
 [node name="Area2D" type="Area2D" parent="." unique_id=448561039]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1600830159]
-position = Vector2(0, -4)
+position = Vector2(20, 4)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="BaseTimer" type="Node" parent="." unique_id=174428712]

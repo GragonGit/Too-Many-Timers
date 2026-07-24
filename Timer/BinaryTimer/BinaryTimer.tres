@@ -2,19 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://oej3d0msrf5" path="res://Timer/BinaryTimer/BinaryTimer.png" id="1_xkdrw"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_565sx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_aprfs"]
 atlas = ExtResource("1_xkdrw")
-region = Rect2(16, 0, 16, 16)
+region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fun3s"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_isqce"]
 atlas = ExtResource("1_xkdrw")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(0, 0, 64, 64)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_565sx")
+"texture": SubResource("AtlasTexture_aprfs")
 }],
 "loop": 0,
 "name": &"press",
@@ -22,7 +22,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fun3s")
+"texture": SubResource("AtlasTexture_isqce")
 }],
 "loop": 0,
 "name": &"release",

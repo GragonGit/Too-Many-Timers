@@ -3,10 +3,10 @@ extends AnimatedSprite2D
 signal reset
 
 @export var bit_count: int = 4
-@export var square_size: float = 2.0
-@export var square_spacing: float = 0.0
-@export var color_on: Color = Color("f6d6bd")
-@export var color_off: Color = Color(Color("f6d6bd"), 0.15)
+@export var square_size: float = 4.0
+@export var square_spacing: float = 4.0
+@export var color_on: Color = Color("f9d381")
+@export var color_off: Color = Color(Color("f9d381"), 0.0)
 
 var is_pressed: bool = false
 var current_value: int = 0
@@ -33,8 +33,8 @@ func on_value_changed(value: float) -> void:
 
 func _draw() -> void:
 	var total_width := bit_count * square_size + (bit_count - 1) * square_spacing
-	var start_x := -total_width / 2.0
-	var y := -square_size / 2.0
+	var start_x := -total_width / 2.0 - 6
+	var y := -square_size / 2.0 + 6
 
 	for i in range(bit_count):
 		var bit_index := bit_count - 1 - i
