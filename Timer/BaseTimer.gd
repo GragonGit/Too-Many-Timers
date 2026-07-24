@@ -3,7 +3,6 @@ class_name BaseTimer
 
 # SECTION Setup
 # Signals
-signal game_over
 signal value_changed(new_value: float)
 signal reset_pressed(new_value: float)
 
@@ -28,7 +27,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if !is_active(): return
 
-	_accumulator += delta
+	_accumulator += delta * GameManager._tick_scale
 	while _accumulator >= tick_interval:
 		_accumulator -= tick_interval
 		_tick()

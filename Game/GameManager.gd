@@ -5,9 +5,11 @@ const TICK_INTERVAL: float = 1.0
 @export var timers: Array[TimerSpawnData] = []
 @export var spawn_parent: Node = null
 @export var spawn_interval: int = 15
+@export var tick_scale_increase: float = 0.1
 
 var current_value: float = 0.0
 var _accumulator: float = 0.0
+var _tick_scale: float = 1.0
 var _is_game_over: bool = false
 var _is_game_paused: bool = false
 var _last_spawn: float = 0.0
@@ -23,7 +25,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if !is_game_active(): return
 
-	_accumulator += delta
+	_accumulator += delta * _tick_scale
 	while _accumulator >= TICK_INTERVAL:
 		_accumulator -= TICK_INTERVAL
 		_tick()
@@ -68,6 +70,7 @@ func _reset_available_timers() -> void:
 
 func _spawn_random_timer() -> void:
 	if _available_indices.is_empty():
+		_tick_scale += tick_scale_increase
 		return
 
 	var random_pos: int = randi() % _available_indices.size()
