@@ -14,7 +14,7 @@ metadata/_custom_type_script = "uid://7xrg387n3kba"
 [sub_resource type="Resource" id="Resource_hj6tj"]
 script = ExtResource("2_nhenp")
 timer_scene = ExtResource("4_nhenp")
-position = Vector2(367, 250)
+position = Vector2(367, 220)
 metadata/_custom_type_script = "uid://7xrg387n3kba"
 
 [node name="GameManager" type="Node" unique_id=841355517]
