@@ -2,19 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://bsd23go4g4kc0" path="res://Timer/BufferTimer/BufferTimer.png" id="1_0nccy"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nccy"]
+atlas = ExtResource("1_0nccy")
+region = Rect2(64, 0, 64, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_tr1jb"]
 atlas = ExtResource("1_0nccy")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k0hjm"]
-atlas = ExtResource("1_0nccy")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(0, 0, 64, 64)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tr1jb")
+"texture": SubResource("AtlasTexture_0nccy")
 }],
 "loop": 0,
 "name": &"press",
@@ -22,7 +22,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k0hjm")
+"texture": SubResource("AtlasTexture_tr1jb")
 }],
 "loop": 0,
 "name": &"release",
