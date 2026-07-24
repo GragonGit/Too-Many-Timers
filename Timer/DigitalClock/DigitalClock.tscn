@@ -9,10 +9,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(12, 8)
 
-[node name="DigitalClock" type="AnimatedSprite2D" unique_id=548302011]
+[node name="DigitalClock" type="AnimatedSprite2D" unique_id=1974070622]
 sprite_frames = ExtResource("1_38c5i")
 animation = &"release"
 script = ExtResource("2_sf7an")
+metadata/_custom_type_script = "uid://77juu5jomxrn"
 
 [node name="DigitsRenderer" type="Node2D" parent="." unique_id=1795638572]
 modulate = Color(0.90588236, 0.34901962, 0.32156864, 1)

@@ -8,12 +8,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_emr4l"]
 size = Vector2(9, 14)
 
-[node name="CollatzTimer" type="AnimatedSprite2D" unique_id=673962843]
+[node name="CollatzTimer" type="AnimatedSprite2D" unique_id=1120646987]
 sprite_frames = ExtResource("1_bep0k")
 animation = &"release"
 script = ExtResource("2_6k1rd")
 digits_texture = ExtResource("3_lfr0w")
 digit_size = Vector2i(6, 10)
+metadata/_custom_type_script = "uid://77juu5jomxrn"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=514671701]
 

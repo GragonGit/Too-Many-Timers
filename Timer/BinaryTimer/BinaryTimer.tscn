@@ -7,10 +7,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(10, 22)
 
-[node name="BinaryTimer" type="AnimatedSprite2D" unique_id=548302011]
+[node name="BinaryTimer" type="AnimatedSprite2D" unique_id=255265836]
 sprite_frames = ExtResource("1_n23g6")
 animation = &"release"
 script = ExtResource("2_oqvf8")
+metadata/_custom_type_script = "uid://77juu5jomxrn"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=448561039]
 
