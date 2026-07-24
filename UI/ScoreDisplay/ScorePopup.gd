@@ -9,7 +9,7 @@ class_name ScorePopup
 
 func setup(amount: int) -> void:
 	digits_renderer.modulate = Color.WHITE if amount >= 0 else Color(1, 0.4, 0.4)
-	digits_renderer.set_value(amount)
+	digits_renderer.set_value(absi(amount))
 	_animate()
 
 func _animate() -> void:

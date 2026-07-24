@@ -19,7 +19,6 @@ var _last_score: int = 0
 func _on_score_changed(new_score: int) -> void:
 	var delta := new_score - _last_score
 	_last_score = new_score
-	print(delta)
 	if delta == 0:
 		return
 	var popup := ScorePopupScene.instantiate() as ScorePopup
