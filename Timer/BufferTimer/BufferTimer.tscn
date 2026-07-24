@@ -26,4 +26,5 @@ metadata/_custom_type_script = "uid://c6nuhbir0x3q6"
 
 [connection signal="reset" from="." to="BufferTimer" method="press_reset_button"]
 [connection signal="input_event" from="Area2D" to="." method="press_reset_button_area2d"]
+[connection signal="mouse_exited" from="Area2D" to="." method="on_mouse_exited_reset_button_area2d"]
 [connection signal="value_changed" from="BufferTimer" to="." method="on_value_changed"]
