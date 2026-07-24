@@ -3,6 +3,7 @@ extends Node
 @onready var tick_music: AudioStreamPlayer = $TickMusic
 @onready var tick_music_scaled: AudioStreamPlayer = $TickMusicScaled
 @onready var times_up: AudioStreamPlayer = $TimesUp
+@onready var take_your_time: AudioStreamPlayer = $TakeYourTime
 @onready var bus_idx := AudioServer.get_bus_index(tick_music.bus)
 @onready var initial_db := AudioServer.get_bus_volume_db(bus_idx)
 @onready var pitch_shift_effect: AudioEffectPitchShift = AudioServer.get_bus_effect(bus_idx, 0)
@@ -17,10 +18,17 @@ func start_tick_music() -> void:
 func stop_tick_music() -> void:
 	tick_music.stop()
 	tick_music_scaled.stop()
+	take_your_time.stop()
 
 func tick_music_paused(paused: bool) -> void:
-	tick_music.stream_paused = paused
-	tick_music_scaled.stream_paused = paused
+	var active_player := tick_music_scaled if using_scaled_music else tick_music
+
+	if paused:
+		active_player.stream_paused = true
+		take_your_time.play()
+	else:
+		take_your_time.stop()
+		active_player.stream_paused = false
 
 func tick_speed(target_speed: float, duration: float = 1.0) -> void:
 	if speed_tween:
@@ -68,6 +76,7 @@ func mute_music(mute: bool, duration: float = 0.1) -> void:
 func on_game_over() -> void:
 	tick_music.stop()
 	tick_music_scaled.stop()
+	take_your_time.stop()
 	_apply_speed(1)
 	if using_scaled_music:
 		using_scaled_music = false
