@@ -1,15 +1,13 @@
 extends Node
 
 @onready var tick_music: AudioStreamPlayer = $TickMusic
-@onready var tick_music_db: float = tick_music.volume_db
+@onready var tick_music_scaled: AudioStreamPlayer = $TickMusicScaled
+@onready var times_up: AudioStreamPlayer = $TimesUp
+@onready var bus_idx := AudioServer.get_bus_index(tick_music.bus)
+@onready var initial_db := AudioServer.get_bus_volume_db(bus_idx)
+@onready var pitch_shift_effect: AudioEffectPitchShift = AudioServer.get_bus_effect(bus_idx, 0)
 
 var speed_tween: Tween
-var pitch_shift_effect: AudioEffectPitchShift
-
-func _ready() -> void:
-	var bus_idx := AudioServer.get_bus_index(tick_music.bus)
-	print(bus_idx)
-	pitch_shift_effect = AudioServer.get_bus_effect(bus_idx, 0) as AudioEffectPitchShift
 
 func start_tick_music() -> void:
 	tick_music.play()
@@ -33,7 +31,12 @@ func _apply_speed(value: float) -> void:
 	if pitch_shift_effect:
 		pitch_shift_effect.pitch_scale = 1.0 / value
 
-func mute_tick_music(mute: bool, duration: float = 0.1) -> void:
-	var target_db := -80.0 if mute else tick_music_db
+func mute_music(mute: bool, duration: float = 0.1) -> void:
+	var target_db := -80.0 if mute else initial_db
 	var tween := create_tween()
-	tween.tween_property(tick_music, "volume_db", target_db, duration)
+	tween.tween_method(
+		_apply_bus_volume, AudioServer.get_bus_volume_db(bus_idx), target_db, duration
+	)
+
+func _apply_bus_volume(value: float) -> void:
+	AudioServer.set_bus_volume_db(bus_idx, value)
