@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameManager="*uid://bylriao8rqpdn"
 AudioManager="*uid://cwvorg00mpork"
 ScoreManager="*uid://uoqhi8mhdwdx"
+GameManager="*uid://bylriao8rqpdn"
 
 [display]
 

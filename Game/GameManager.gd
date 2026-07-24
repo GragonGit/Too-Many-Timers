@@ -8,7 +8,9 @@ const TICK_INTERVAL: float = 1.0
 @export var tick_scale_increase: float = 0.1
 
 var current_value: float = 0.0
+var current_value_scaled: float = 0.0
 var _accumulator: float = 0.0
+var _accumulator_scaled: float = 0.0
 var _tick_scale: float = 1.0
 var _is_game_over: bool = false
 var _is_game_paused: bool = false
@@ -19,16 +21,24 @@ var _spawned_timers: Array[Node] = []
 
 
 func _ready() -> void:
+	AudioManager.tick_speed(_tick_scale)
+	AudioManager.start_tick_music()
 	_reset_available_timers()
 
 
 func _process(delta: float) -> void:
 	if !is_game_active(): return
 
-	_accumulator += delta * _tick_scale
+	_accumulator += delta
+	_accumulator_scaled += delta * _tick_scale
 	while _accumulator >= TICK_INTERVAL:
 		_accumulator -= TICK_INTERVAL
 		_tick()
+		if _is_game_over:
+			break
+	while _accumulator_scaled >= TICK_INTERVAL:
+		_accumulator_scaled -= TICK_INTERVAL
+		_tick_scaled()
 		if _is_game_over:
 			break
 
@@ -38,24 +48,40 @@ func is_game_active() -> bool:
 
 func restart() -> void:
 	current_value = 0.0
+	current_value_scaled = 0.0
 	_is_game_over = false
+	_tick_scale = 1.0
 	_accumulator = 0.0
+	_accumulator_scaled = 0.0
 	_last_spawn = 0.0
 	_clear_spawned_timers()
 	_reset_available_timers()
+	AudioManager.tick_speed(_tick_scale)
+	AudioManager.start_tick_music()
 
 func game_over() -> void:
 	if _is_game_over: return
 	_is_game_over = true
+	AudioManager.stop_tick_music()
 	print("Game Over!")
 
+func game_pause(paused: bool) -> void:
+	_is_game_paused = paused
+	AudioManager.tick_music_paused(paused)
 
 func _tick() -> void:
 	current_value += TICK_INTERVAL
-	ScoreManager.add_score(1)
 	if _should_spawn():
 		_spawn_random_timer()
 		_last_spawn = current_value
+
+func _tick_scaled() -> void:
+	current_value_scaled += TICK_INTERVAL
+	ScoreManager.add_score(1)
+
+func _increase_difficulty() -> void:
+	_tick_scale += tick_scale_increase
+	AudioManager.tick_speed(_tick_scale)
 
 
 func _should_spawn() -> bool:
@@ -70,7 +96,7 @@ func _reset_available_timers() -> void:
 
 func _spawn_random_timer() -> void:
 	if _available_indices.is_empty():
-		_tick_scale += tick_scale_increase
+		_increase_difficulty()
 		return
 
 	var random_pos: int = randi() % _available_indices.size()

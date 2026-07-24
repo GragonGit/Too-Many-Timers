@@ -41,7 +41,3 @@ func _draw() -> void:
 	)
 	
 	draw_rect(fill_rect, Color("f6d6bd"))
-
-
-func _on_buffer_timer_value_changed(new_value: float) -> void:
-	pass # Replace with function body.

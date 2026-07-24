@@ -27,7 +27,7 @@ func on_mouse_exited_reset_button_area2d() -> void:
 
 func on_value_changed(value: float) -> void:
 	seconds0 = int(value) % 10
-	seconds1 = int(value) / 10
+	seconds1 = int(value / 10.0)
 	queue_redraw()
 
 func _draw() -> void:
