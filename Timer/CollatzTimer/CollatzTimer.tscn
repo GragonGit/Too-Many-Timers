@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bjeum4yq2anuj" path="res://UI/ScoreDisplay/Digits.png" id="3_lfr0w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_emr4l"]
-size = Vector2(24, 16)
+size = Vector2(9, 14)
 
 [node name="CollatzTimer" type="AnimatedSprite2D" unique_id=673962843]
 sprite_frames = ExtResource("1_bep0k")
@@ -17,7 +17,7 @@ digits_texture = ExtResource("3_lfr0w")
 [node name="Area2D" type="Area2D" parent="." unique_id=514671701]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1496852432]
-position = Vector2(0, 20)
+position = Vector2(12.5, 17)
 shape = SubResource("RectangleShape2D_emr4l")
 
 [node name="CollatzTimer" type="Node" parent="." unique_id=1031247103]
