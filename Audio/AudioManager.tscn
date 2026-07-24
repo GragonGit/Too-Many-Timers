@@ -18,4 +18,5 @@ bus = &"Music"
 
 [node name="TimesUp" type="AudioStreamPlayer" parent="." unique_id=555481434]
 stream = ExtResource("3_5m6nf")
+volume_db = 15.0
 bus = &"Music"
