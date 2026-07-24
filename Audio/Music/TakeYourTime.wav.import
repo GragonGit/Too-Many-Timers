@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b8nj2gp0ybl3q"
-path="res://.godot/imported/TakeYourTime.wav-cc09721169a721ae95b7da243d5c49c5.sample"
+path="res://.godot/imported/TakeYourTime.wav-45e89883e62f199b4f4ff45b6129daa3.sample"
 
 [deps]
 
-source_file="res://Audio/TakeYourTime.wav"
-dest_files=["res://.godot/imported/TakeYourTime.wav-cc09721169a721ae95b7da243d5c49c5.sample"]
+source_file="res://Audio/Music/TakeYourTime.wav"
+dest_files=["res://.godot/imported/TakeYourTime.wav-45e89883e62f199b4f4ff45b6129daa3.sample"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://8rh1mkh85htw"
-path="res://.godot/imported/TimesUp.wav-7d2031ef9c63270b34abd0fd3d3cc457.sample"
+path="res://.godot/imported/TimesUp.wav-b2fc0fe2c8f537a869d5dbadb45fe06c.sample"
 
 [deps]
 
-source_file="res://Audio/TimesUp.wav"
-dest_files=["res://.godot/imported/TimesUp.wav-7d2031ef9c63270b34abd0fd3d3cc457.sample"]
+source_file="res://Audio/Music/TimesUp.wav"
+dest_files=["res://.godot/imported/TimesUp.wav-b2fc0fe2c8f537a869d5dbadb45fe06c.sample"]
 
 [params]
 

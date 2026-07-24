@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dmchgj5w6ur03"
-path="res://.godot/imported/TheCountingStarts.wav-51664ebee4edd02b47387d78bb12baff.sample"
+path="res://.godot/imported/TheCountingStarts.wav-bf441c2bd11539fc6420af3e2310bf85.sample"
 
 [deps]
 
-source_file="res://Audio/TheCountingStarts.wav"
-dest_files=["res://.godot/imported/TheCountingStarts.wav-51664ebee4edd02b47387d78bb12baff.sample"]
+source_file="res://Audio/Music/TheCountingStarts.wav"
+dest_files=["res://.godot/imported/TheCountingStarts.wav-bf441c2bd11539fc6420af3e2310bf85.sample"]
 
 [params]
 
