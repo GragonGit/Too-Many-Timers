@@ -3,6 +3,14 @@ extends Node
 @onready var tick_music: AudioStreamPlayer = $TickMusic
 @onready var tick_music_db: float = tick_music.volume_db
 
+var speed_tween: Tween
+var pitch_shift_effect: AudioEffectPitchShift
+
+func _ready() -> void:
+	var bus_idx := AudioServer.get_bus_index(tick_music.bus)
+	print(bus_idx)
+	pitch_shift_effect = AudioServer.get_bus_effect(bus_idx, 0) as AudioEffectPitchShift
+
 func start_tick_music() -> void:
 	tick_music.play()
 
@@ -12,8 +20,20 @@ func stop_tick_music() -> void:
 func tick_music_paused(paused: bool) -> void:
 	tick_music.stream_paused = paused
 
-func tick_speed(speed: float) -> void:
-	tick_music.pitch_scale = speed
+func tick_speed(target_speed: float, duration: float = 1.0) -> void:
+	if speed_tween:
+		speed_tween.kill()
+	speed_tween = create_tween()
+	speed_tween.tween_method(
+		_apply_speed, tick_music.pitch_scale, target_speed, duration
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
-func mute_tick_music(mute: bool) -> void:
-	tick_music.volume_db = -80.0 if mute else tick_music_db
+func _apply_speed(value: float) -> void:
+	tick_music.pitch_scale = value
+	if pitch_shift_effect:
+		pitch_shift_effect.pitch_scale = 1.0 / value
+
+func mute_tick_music(mute: bool, duration: float = 0.1) -> void:
+	var target_db := -80.0 if mute else tick_music_db
+	var tween := create_tween()
+	tween.tween_property(tick_music, "volume_db", target_db, duration)

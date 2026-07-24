@@ -9,3 +9,4 @@ script = ExtResource("1_l0aok")
 [node name="TickMusic" type="AudioStreamPlayer" parent="." unique_id=335521024]
 stream = ExtResource("2_4apyq")
 volume_db = -20.0
+bus = &"Music"
