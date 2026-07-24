@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://m2i3oij8shxy" path="res://Timer/DigitalClock/DigitalClockUI.gd" id="2_sf7an"]
 [ext_resource type="Texture2D" uid="uid://bjeum4yq2anuj" path="res://UI/ScoreDisplay/Digits.png" id="3_tsvx5"]
 [ext_resource type="Script" uid="uid://dbwsyn35pn7su" path="res://Timer/BaseTimer.gd" id="3_yja6s"]
+[ext_resource type="Script" uid="uid://viwv3nmt732c" path="res://Timer/DigitsRenderer.gd" id="4_1bxq7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(12, 8)
@@ -12,12 +13,18 @@ size = Vector2(12, 8)
 sprite_frames = ExtResource("1_38c5i")
 animation = &"release"
 script = ExtResource("2_sf7an")
+
+[node name="DigitsRenderer" type="Node2D" parent="." unique_id=1795638572]
+modulate = Color(0.90588236, 0.34901962, 0.32156864, 1)
+position = Vector2(4, -2)
+script = ExtResource("4_1bxq7")
 digits_texture = ExtResource("3_tsvx5")
+metadata/_custom_type_script = "uid://viwv3nmt732c"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=448561039]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1600830159]
-position = Vector2(0, -4)
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="BaseTimer" type="Node" parent="." unique_id=174428712]
@@ -28,4 +35,4 @@ metadata/_custom_type_script = "uid://dbwsyn35pn7su"
 [connection signal="input_event" from="Area2D" to="." method="press_reset_button_area2d"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="on_mouse_exited_reset_button_area2d"]
-[connection signal="value_changed" from="BaseTimer" to="." method="on_value_changed"]
+[connection signal="value_changed" from="BaseTimer" to="DigitsRenderer" method="set_value_f"]

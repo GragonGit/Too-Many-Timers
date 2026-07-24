@@ -2,19 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://br4xjpvvl6tns" path="res://Timer/DigitalClock/DigitalClock.png" id="1_fun3s"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_565sx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_whrny"]
 atlas = ExtResource("1_fun3s")
-region = Rect2(16, 0, 16, 16)
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fun3s"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_khft8"]
 atlas = ExtResource("1_fun3s")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(0, 0, 32, 32)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_565sx")
+"texture": SubResource("AtlasTexture_whrny")
 }],
 "loop": 0,
 "name": &"press",
@@ -22,7 +22,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fun3s")
+"texture": SubResource("AtlasTexture_khft8")
 }],
 "loop": 0,
 "name": &"release",

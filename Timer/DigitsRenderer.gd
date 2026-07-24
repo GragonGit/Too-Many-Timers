@@ -11,6 +11,9 @@ var digits: Array[int] = []
 func _ready() -> void:
 	set_value(0)
 
+func set_value_f(value: float) -> void:
+	set_value(int(value))
+
 func set_value(value: int) -> void:
 	digits.clear()
 	var v: int = maxi(value, 0)
