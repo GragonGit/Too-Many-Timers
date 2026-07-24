@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://46hvkn8vq4lr"]
 
-[ext_resource type="Script" uid="uid://d1f6rh0middfr" path="res://UI/ScoreDisplay/ScoreScript.gd" id="1_6dd3c"]
 [ext_resource type="Script" uid="uid://twbpmt41yehg" path="res://UI/UI.gd" id="1_jqf55"]
 [ext_resource type="Texture2D" uid="uid://bjeum4yq2anuj" path="res://UI/ScoreDisplay/Digits.png" id="2_byuxr"]
+[ext_resource type="Script" uid="uid://viwv3nmt732c" path="res://Timer/DigitsRenderer.gd" id="2_d050y"]
 [ext_resource type="Texture2D" uid="uid://dw88a2sa2rp84" path="res://UI/Pause/Pause.png" id="2_dhe1o"]
 [ext_resource type="Texture2D" uid="uid://cwmkmnd5kp1q2" path="res://UI/Audio/AudioOff.png" id="2_f1fl4"]
 [ext_resource type="Texture2D" uid="uid://cg4gyw7t72vrv" path="res://UI/Pause/Play.png" id="2_q0uhn"]
 [ext_resource type="Texture2D" uid="uid://50fnlot8l4e3" path="res://UI/Audio/AudioOn.png" id="3_jqf55"]
+[ext_resource type="Texture2D" uid="uid://gxmgulqvp7ha" path="res://UI/Background.png" id="8_d050y"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qgmx8"]
 
@@ -29,11 +30,28 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jqf55")
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1697539910]
-position = Vector2(400, 280)
-script = ExtResource("1_6dd3c")
+[node name="Background" type="TextureRect" parent="." unique_id=1842584859]
+z_index = -1
+layout_mode = 0
+offset_right = 576.0
+offset_bottom = 324.0
+texture = ExtResource("8_d050y")
+
+[node name="Score" type="Node2D" parent="." unique_id=466115385]
+position = Vector2(328, 273)
+script = ExtResource("2_d050y")
 digits_texture = ExtResource("2_byuxr")
-digit_spacing = 3
+digit_spacing = 1
+min_digits = 16
+metadata/_custom_type_script = "uid://viwv3nmt732c"
+
+[node name="HighScore" type="Node2D" parent="." unique_id=1594378051]
+position = Vector2(328, 290)
+script = ExtResource("2_d050y")
+digits_texture = ExtResource("2_byuxr")
+digit_spacing = 1
+min_digits = 16
+metadata/_custom_type_script = "uid://viwv3nmt732c"
 
 [node name="MarginContainer2" type="MarginContainer" parent="." unique_id=452784281]
 layout_mode = 1
