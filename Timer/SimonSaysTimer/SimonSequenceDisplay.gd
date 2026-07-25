@@ -6,7 +6,7 @@ class_name SimonSequenceDisplay
 # then each color in turn with a brief blank gap between them so repeated
 # colors and turn boundaries are always visually distinct.
 
-@export var colors: Array[Color] = [Color.RED, Color.GREEN, Color.BLUE, Color("f4d03f")]
+@export var colors: Array[Color] = []
 @export var rect_size: Vector2 = Vector2(24, 24)
 @export var rect_spacing: float = 8.0
 @export var flash_interval: float = 0.5
