@@ -39,6 +39,11 @@ func _on_sequence_completed() -> void:
 
 func _generate_pattern() -> void:
 	target_pattern.clear()
+	var previous_color: int = -1
 	for i in pattern_length:
-		target_pattern.append(randi() % color_count)
+		var next_color: int = randi() % color_count
+		while next_color == previous_color:
+			next_color = randi() % color_count
+		target_pattern.append(next_color)
+		previous_color = next_color
 	sequence_display.set_pattern(target_pattern)
