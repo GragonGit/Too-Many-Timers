@@ -12,6 +12,7 @@
 [ext_resource type="SpriteFrames" uid="uid://c5jebs505c5np" path="res://Timer/SimonSaysTimer/SimonButtonGreenAnim.tres" id="10_e2nqp"]
 [ext_resource type="SpriteFrames" uid="uid://bslj8gi8kw5rc" path="res://Timer/SimonSaysTimer/SimonButtonBlueAnim.tres" id="11_s0gaj"]
 [ext_resource type="SpriteFrames" uid="uid://2omw2a1yy84s" path="res://Timer/SimonSaysTimer/SimonButtonYellowAnim.tres" id="12_dsib7"]
+[ext_resource type="PackedScene" uid="uid://bv3wpd5idgg55" path="res://Timer/Entry/EntryAnimation.tscn" id="13_s0gaj"]
 
 [node name="SimonSaysTimer" type="AnimatedSprite2D" unique_id=1974070622]
 sprite_frames = ExtResource("1_60bd1")
@@ -76,6 +77,8 @@ sprite_frames = ExtResource("12_dsib7")
 animation = &"release"
 speed_scale = 0.0
 button_id = 3
+
+[node name="EntryAnimation" parent="." unique_id=64887694 instance=ExtResource("13_s0gaj")]
 
 [connection signal="reset" from="." to="SimonSaysTimer" method="press_reset_button"]
 [connection signal="value_changed" from="SimonSaysTimer" to="DigitsRenderer" method="set_value_f"]
