@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://c3q4b6rbyg7xk"]
+
+[ext_resource type="Texture2D" uid="uid://blnv4be5nq7uf" path="res://Timer/AnalogTimer/AnalogTimer.png" id="1_velsq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_velsq"]
+atlas = ExtResource("1_velsq")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pc5cc"]
+atlas = ExtResource("1_velsq")
+region = Rect2(192, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_velsq")
+}],
+"loop": 0,
+"name": &"press",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pc5cc")
+}],
+"loop": 0,
+"name": &"release",
+"speed": 5.0
+}]

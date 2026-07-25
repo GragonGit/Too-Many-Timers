@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://c5d45csxk13n1"]
+
+[ext_resource type="Texture2D" uid="uid://blnv4be5nq7uf" path="res://Timer/AnalogTimer/AnalogTimer.png" id="1_tr12d"]
+[ext_resource type="Script" uid="uid://d564ex4ljf5r" path="res://Timer/AnalogTimer/AnalogTimerUI.gd" id="1_wlg2k"]
+[ext_resource type="PackedScene" uid="uid://bv3wpd5idgg55" path="res://Timer/Entry/EntryAnimation.tscn" id="2_tr12d"]
+[ext_resource type="Script" uid="uid://77juu5jomxrn" path="res://Timer/TimerSprite2D.gd" id="4_f1tw6"]
+[ext_resource type="SpriteFrames" uid="uid://cdvvth227ti65" path="res://Timer/AnalogTimer/AnalogTimerButtonLeft.tres" id="4_mn6rp"]
+[ext_resource type="SpriteFrames" uid="uid://c3q4b6rbyg7xk" path="res://Timer/AnalogTimer/AnalogTimerButtonRight.tres" id="6_dreos"]
+[ext_resource type="Script" uid="uid://di36ht83quxhh" path="res://Timer/AnalogTimer/AnalogTimer.gd" id="7_12v4i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86mg2"]
+
+[node name="AnalogTimer" type="Sprite2D" unique_id=300557878]
+texture = ExtResource("1_tr12d")
+hframes = 5
+script = ExtResource("1_wlg2k")
+line_origin = Vector2(0, 3)
+line_color = Color(0.6156863, 0.6156863, 0.6156863, 1)
+
+[node name="ButtonLeft" type="AnimatedSprite2D" parent="." unique_id=891157139]
+sprite_frames = ExtResource("4_mn6rp")
+animation = &"release"
+script = ExtResource("4_f1tw6")
+metadata/_custom_type_script = "uid://77juu5jomxrn"
+
+[node name="Area2D" type="Area2D" parent="ButtonLeft" unique_id=1546739603]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonLeft/Area2D" unique_id=806314311]
+position = Vector2(-17, -25)
+shape = SubResource("RectangleShape2D_86mg2")
+
+[node name="ButtonRight" type="AnimatedSprite2D" parent="." unique_id=184738060]
+sprite_frames = ExtResource("6_dreos")
+animation = &"release"
+script = ExtResource("4_f1tw6")
+metadata/_custom_type_script = "uid://77juu5jomxrn"
+
+[node name="Area2D" type="Area2D" parent="ButtonRight" unique_id=601356296]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonRight/Area2D" unique_id=1559634337]
+position = Vector2(17, -25)
+shape = SubResource("RectangleShape2D_86mg2")
+
+[node name="EntryAnimation" parent="." unique_id=64887694 instance=ExtResource("2_tr12d")]
+
+[node name="AnalogTimer" type="Node" parent="." unique_id=46614365]
+script = ExtResource("7_12v4i")
+reset_value = 0.0
+tick_interval = 2.0
+metadata/_custom_type_script = "uid://di36ht83quxhh"
+
+[connection signal="reset" from="ButtonLeft" to="AnalogTimer" method="push_left"]
+[connection signal="input_event" from="ButtonLeft/Area2D" to="ButtonLeft" method="press_reset_button_area2d"]
+[connection signal="mouse_entered" from="ButtonLeft/Area2D" to="ButtonLeft" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ButtonLeft/Area2D" to="ButtonLeft" method="on_mouse_exited_reset_button_area2d"]
+[connection signal="reset" from="ButtonRight" to="AnalogTimer" method="push_right"]
+[connection signal="input_event" from="ButtonRight/Area2D" to="ButtonRight" method="press_reset_button_area2d"]
+[connection signal="mouse_entered" from="ButtonRight/Area2D" to="ButtonRight" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ButtonRight/Area2D" to="ButtonRight" method="on_mouse_exited_reset_button_area2d"]
+[connection signal="value_changed" from="AnalogTimer" to="." method="on_value_change"]
