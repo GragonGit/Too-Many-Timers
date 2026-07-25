@@ -73,7 +73,9 @@ func _should_trigger_game_over(value: float) -> bool:
 	return value <= 0.0
 
 func _calculate_score(old_value: float) -> int:
-	return roundi(current_value - old_value)
+	var diff: int = current_value - old_value
+	
+	return 0 if diff == 0 else roundi(diff + diff / 4.0)
 
 func _on_reset_pressed() -> void:
 	var old_value = current_value
