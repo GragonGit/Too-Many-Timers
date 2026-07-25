@@ -4,7 +4,7 @@ const TICK_INTERVAL: float = 1.0
 
 @export var timers: Array[TimerSpawnData] = []
 @export var spawn_parent: Node = null
-@export var spawn_interval: int = 1
+@export var spawn_interval: int = 15
 @export var tick_scale_increase: float = 0.1
 var main_timer: Node
 
