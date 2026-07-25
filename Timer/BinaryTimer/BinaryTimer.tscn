@@ -22,6 +22,7 @@ shape = SubResource("RectangleShape2D_g4v7s")
 [node name="BaseTimer" type="Node" parent="." unique_id=174428712]
 script = ExtResource("4_t83h2")
 reset_value = 15.0
+tick_interval = 2.0
 metadata/_custom_type_script = "uid://dbwsyn35pn7su"
 
 [connection signal="reset" from="." to="BaseTimer" method="press_reset_button"]
