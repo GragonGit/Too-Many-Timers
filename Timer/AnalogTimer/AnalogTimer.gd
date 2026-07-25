@@ -23,7 +23,6 @@ func _on_reset_pressed() -> void:
 	reset_pressed.emit(current_value)
 
 func _calculate_score(old_value: float) -> int:
-	print(abs(current_value) if sign(abs(old_value) - abs(current_value)) else -abs(current_value))
 	return roundi(abs(current_value) * sign(abs(old_value) - abs(current_value)))
 
 func _push(amount: float) -> void:

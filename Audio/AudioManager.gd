@@ -29,9 +29,11 @@ func tick_music_paused(paused: bool) -> void:
 
 	if paused:
 		active_player.stream_paused = true
+		AudioServer.set_bus_effect_enabled(bus_idx, 0, false)
 		take_your_time.play()
 	else:
 		take_your_time.stop()
+		AudioServer.set_bus_effect_enabled(bus_idx, 0, true)
 		active_player.stream_paused = false
 
 func tick_speed(target_speed: float, duration: float = 1.0) -> void:
