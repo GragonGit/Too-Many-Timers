@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b5ntig5vpx5h3" path="res://Timer/BinaryTimer/BinaryTimer.tscn" id="3_c05xa"]
 [ext_resource type="PackedScene" uid="uid://cd65nnha4bpxe" path="res://Timer/BufferTimer/BufferTimer.tscn" id="4_nhenp"]
 [ext_resource type="PackedScene" uid="uid://cifpj2idomb4q" path="res://Timer/CollatzTimer/CollatzTimer.tscn" id="5_y0h6o"]
+[ext_resource type="PackedScene" uid="uid://cvrauw8t5xyki" path="res://Timer/SimonSaysTimer/SimonSaysTimer.tscn" id="6_d4q0h"]
 
 [sub_resource type="Resource" id="Resource_emr4l"]
 script = ExtResource("2_nhenp")
@@ -24,6 +25,12 @@ timer_scene = ExtResource("5_y0h6o")
 position = Vector2(458, 128)
 metadata/_custom_type_script = "uid://7xrg387n3kba"
 
+[sub_resource type="Resource" id="Resource_whrny"]
+script = ExtResource("2_nhenp")
+timer_scene = ExtResource("6_d4q0h")
+position = Vector2(143, 183)
+metadata/_custom_type_script = "uid://7xrg387n3kba"
+
 [node name="GameManager" type="Node" unique_id=841355517]
 script = ExtResource("1_xnxdg")
-timers = Array[ExtResource("2_nhenp")]([SubResource("Resource_emr4l"), SubResource("Resource_hj6tj"), SubResource("Resource_vg8fj")])
+timers = Array[ExtResource("2_nhenp")]([SubResource("Resource_emr4l"), SubResource("Resource_hj6tj"), SubResource("Resource_vg8fj"), SubResource("Resource_whrny")])
