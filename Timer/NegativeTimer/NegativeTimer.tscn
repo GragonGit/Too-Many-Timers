@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://viwv3nmt732c" path="res://Timer/DigitsRenderer.gd" id="3_0wwpi"]
 [ext_resource type="Texture2D" uid="uid://bjeum4yq2anuj" path="res://UI/ScoreDisplay/Digits.png" id="4_r3304"]
 [ext_resource type="Script" uid="uid://lwierwnlgb5m" path="res://Timer/NegativeTimer/NegativeTimer.gd" id="5_27p2c"]
+[ext_resource type="PackedScene" uid="uid://bv3wpd5idgg55" path="res://Timer/Entry/EntryAnimation.tscn" id="6_toomx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(12, 8)
@@ -16,7 +17,7 @@ script = ExtResource("2_27p2c")
 metadata/_custom_type_script = "uid://77juu5jomxrn"
 
 [node name="DigitsRenderer" type="Node2D" parent="." unique_id=1795638572]
-modulate = Color(0.34509534, 0.60282284, 0.67717254, 1)
+modulate = Color(0.15497425, 0.633033, 0.6547462, 1)
 position = Vector2(4, -2)
 script = ExtResource("3_0wwpi")
 digits_texture = ExtResource("4_r3304")
@@ -32,6 +33,8 @@ shape = SubResource("RectangleShape2D_g4v7s")
 script = ExtResource("5_27p2c")
 reset_value = 0.0
 metadata/_custom_type_script = "uid://dbwsyn35pn7su"
+
+[node name="EntryAnimation" parent="." unique_id=64887694 instance=ExtResource("6_toomx")]
 
 [connection signal="reset" from="." to="NegativeTimer" method="press_reset_button"]
 [connection signal="input_event" from="Area2D" to="." method="press_reset_button_area2d"]

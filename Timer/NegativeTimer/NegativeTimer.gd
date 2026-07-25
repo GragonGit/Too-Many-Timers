@@ -9,5 +9,4 @@ func _should_trigger_game_over(value: float) -> bool:
 	return value >= 60.0
 
 func _calculate_score(old_value: float) -> int:
-	print(old_value)
 	return roundi(old_value)
