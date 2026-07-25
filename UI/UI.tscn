@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cwmkmnd5kp1q2" path="res://UI/Audio/AudioOff.png" id="2_f1fl4"]
 [ext_resource type="Texture2D" uid="uid://cg4gyw7t72vrv" path="res://UI/Pause/Play.png" id="2_q0uhn"]
 [ext_resource type="Texture2D" uid="uid://50fnlot8l4e3" path="res://UI/Audio/AudioOn.png" id="3_jqf55"]
+[ext_resource type="Texture2D" uid="uid://c3w324wrfwppp" path="res://UI/StartLabel.png" id="3_vx7wu"]
 [ext_resource type="Texture2D" uid="uid://gxmgulqvp7ha" path="res://UI/Background.png" id="8_d050y"]
 [ext_resource type="Script" uid="uid://n5nxt8rkego" path="res://UI/ScoreDisplay/ScorePopupCanvas.gd" id="9_qgmx8"]
 
@@ -39,6 +40,16 @@ offset_right = 576.0
 offset_bottom = 324.0
 mouse_filter = 2
 texture = ExtResource("8_d050y")
+
+[node name="StartLabel" type="TextureRect" parent="." unique_id=294136885]
+z_index = -1
+layout_mode = 0
+offset_left = 233.0
+offset_top = 140.0
+offset_right = 297.0
+offset_bottom = 156.0
+mouse_filter = 2
+texture = ExtResource("3_vx7wu")
 
 [node name="Score" type="Node2D" parent="." unique_id=466115385]
 modulate = Color(0.90588236, 0.34901962, 0.32156864, 1)
