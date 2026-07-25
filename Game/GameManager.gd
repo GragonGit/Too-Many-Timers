@@ -7,6 +7,7 @@ const TICK_INTERVAL: float = 1.0
 @export var spawn_interval: int = 15
 @export var tick_scale_increase: float = 0.1
 var main_timer: Node
+var rubber_duck: Node
 
 var current_value: float = 0.0
 var current_value_scaled: float = 0.0
@@ -57,6 +58,7 @@ func reset() -> void:
 	_reset_available_timers()
 	AudioManager.tick_speed(_tick_scale)
 	main_timer.connect("reset", retry)
+	rubber_duck.reset()
 	(main_timer.get_node("BaseTimer") as BaseTimer).restart()
 
 func game_over() -> void:
