@@ -7,6 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://b8nj2gp0ybl3q" path="res://Audio/Music/TakeYourTime.wav" id="5_nmk5h"]
 [ext_resource type="AudioStream" uid="uid://ueq7xrmp5idy" path="res://Audio/Effects/Click1.ogg" id="6_o44l8"]
 [ext_resource type="AudioStream" uid="uid://domuamjjdue73" path="res://Audio/Effects/Click2.ogg" id="7_i3n6d"]
+[ext_resource type="AudioStream" uid="uid://bswqpac0ffhf4" path="res://Audio/Effects/DuckDown.ogg" id="8_ss443"]
+[ext_resource type="AudioStream" uid="uid://dn1gqpsbc06ws" path="res://Audio/Effects/DuckUp.ogg" id="9_glf7e"]
 
 [node name="AudioManager" type="Node" unique_id=691285824]
 script = ExtResource("1_l0aok")
@@ -37,3 +39,11 @@ pitch_scale = 0.8
 stream = ExtResource("7_i3n6d")
 volume_db = -15.0
 pitch_scale = 0.8
+
+[node name="RubberDuckDown" type="AudioStreamPlayer" parent="." unique_id=1753165214]
+stream = ExtResource("8_ss443")
+volume_db = -20.0
+
+[node name="RubberDuckUp" type="AudioStreamPlayer" parent="." unique_id=1742820646]
+stream = ExtResource("9_glf7e")
+volume_db = -20.0

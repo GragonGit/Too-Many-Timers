@@ -6,6 +6,8 @@ extends Node
 @onready var take_your_time: AudioStreamPlayer = $TakeYourTime
 @onready var click: AudioStreamPlayer = $Click
 @onready var clack: AudioStreamPlayer = $Clack
+@onready var duck_down: AudioStreamPlayer = $RubberDuckDown
+@onready var duck_up: AudioStreamPlayer = $RubberDuckUp
 @onready var bus_idx := AudioServer.get_bus_index(tick_music.bus)
 @onready var initial_db := AudioServer.get_bus_volume_db(bus_idx)
 @onready var pitch_shift_effect: AudioEffectPitchShift = AudioServer.get_bus_effect(bus_idx, 0)
@@ -92,3 +94,9 @@ func on_button_down() -> void:
 
 func on_button_up() -> void:
 	clack.play()
+
+func on_duck_down() -> void:
+	duck_down.play()
+
+func on_duck_up() -> void:
+	duck_up.play()

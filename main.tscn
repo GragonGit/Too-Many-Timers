@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b1mm3o80v4b8y"]
 
+[ext_resource type="PackedScene" uid="uid://dhwo417hnlifv" path="res://Timer/RubberDuck/RubberDuck.tscn" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://kmmjj2ittgkw" path="res://Timer/DigitalClock/DigitalClock.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://46hvkn8vq4lr" path="res://UI/UI.tscn" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://bw2px55r4rtea" path="res://Timer/TimerParent.gd" id="2_h2yge"]
@@ -7,6 +8,9 @@
 [node name="Game" type="Node" unique_id=884841435]
 
 [node name="Scene" type="Node" parent="." unique_id=25121995]
+
+[node name="RubberDuck" parent="Scene" unique_id=1974070622 instance=ExtResource("1_1bvp3")]
+position = Vector2(97, 238)
 
 [node name="DigitalClock" parent="Scene" unique_id=548302011 instance=ExtResource("1_ig7tw")]
 position = Vector2(288, 168)

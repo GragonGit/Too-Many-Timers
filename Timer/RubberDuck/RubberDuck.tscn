@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dhwo417hnlifv"]
+
+[ext_resource type="SpriteFrames" uid="uid://bx6wgqa0rhvp4" path="res://Timer/RubberDuck/RubberDuckAnim.tres" id="1_1yp0o"]
+[ext_resource type="Script" uid="uid://beym08wky8p8q" path="res://Timer/RubberDuck/RubberDuckUI.gd" id="2_eyaut"]
+[ext_resource type="Script" uid="uid://1xfd8mnci1xc" path="res://Timer/RubberDuck/RubberDuck.gd" id="5_jg5cg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(36, 34)
+
+[node name="RubberDuck" type="AnimatedSprite2D" unique_id=1974070622]
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("1_1yp0o")
+animation = &"release"
+script = ExtResource("2_eyaut")
+metadata/_custom_type_script = "uid://77juu5jomxrn"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=448561039]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1600830159]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="RubberDuck" type="Node" parent="." unique_id=174428712]
+script = ExtResource("5_jg5cg")
+metadata/_custom_type_script = "uid://dbwsyn35pn7su"
+
+[connection signal="reset" from="." to="RubberDuck" method="press_reset_button"]
+[connection signal="input_event" from="Area2D" to="." method="press_reset_button_area2d"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="on_mouse_exited_reset_button_area2d"]
