@@ -58,6 +58,7 @@ func reset() -> void:
 	_reset_available_timers()
 	AudioManager.tick_speed(_tick_scale)
 	main_timer.connect("reset", retry)
+	(main_timer.get_node("BaseTimer") as BaseTimer).restart()
 
 func game_over() -> void:
 	if _is_game_over: return
