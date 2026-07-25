@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cc8mdjrqcnbqs"]
+
+[ext_resource type="Texture2D" uid="uid://oxutn2c164e7" path="res://Timer/NegativeTimer/NegativeTimer.png" id="1_x7vfh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whrny"]
+atlas = ExtResource("1_x7vfh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khft8"]
+atlas = ExtResource("1_x7vfh")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whrny")
+}],
+"loop": 0,
+"name": &"press",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khft8")
+}],
+"loop": 0,
+"name": &"release",
+"speed": 5.0
+}]

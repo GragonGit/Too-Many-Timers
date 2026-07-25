@@ -69,7 +69,6 @@ func is_active() -> bool:
 func _calculate_next_value(value: float) -> float:
 	return value - 1.0
 
-
 func _should_trigger_game_over(value: float) -> bool:
 	return value <= 0.0
 
