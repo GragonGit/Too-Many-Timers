@@ -67,14 +67,13 @@ func _apply_speed(value: float) -> void:
 	if pitch_shift_effect:
 		pitch_shift_effect.pitch_scale = 1.0 / value
 
-func mute_music(mute: bool, duration: float = 0.1) -> void:
+func set_music_db(db: float, duration: float = 0.1) -> void:
 	if mute_tween:
 		mute_tween.kill()
 
-	var target_db := -80.0 if mute else initial_db
 	mute_tween = create_tween()
 	mute_tween.tween_method(
-		_apply_bus_volume, AudioServer.get_bus_volume_db(bus_idx), target_db, duration
+		_apply_bus_volume, AudioServer.get_bus_volume_db(bus_idx), db, duration
 	)
 
 func on_game_over() -> void:

@@ -9,7 +9,15 @@
 [ext_resource type="Texture2D" uid="uid://50fnlot8l4e3" path="res://UI/Audio/AudioOn.png" id="3_jqf55"]
 [ext_resource type="Texture2D" uid="uid://c3w324wrfwppp" path="res://UI/StartLabel.png" id="3_vx7wu"]
 [ext_resource type="Texture2D" uid="uid://gxmgulqvp7ha" path="res://UI/Background.png" id="8_d050y"]
+[ext_resource type="Script" uid="uid://dfweepvpg8bg5" path="res://UI/Slider.gd" id="8_r2vy3"]
 [ext_resource type="Script" uid="uid://n5nxt8rkego" path="res://UI/ScoreDisplay/ScorePopupCanvas.gd" id="9_qgmx8"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qgmx8"]
+load_path = "res://.godot/imported/AudioOn.png-415f885bcd4cfaa9b59c9900d2101f67.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vx7wu"]
+content_margin_bottom = 1.0
+bg_color = Color(1, 1, 1, 0.8156863)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qgmx8"]
 
@@ -84,25 +92,22 @@ theme_override_constants/margin_right = 8
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2" unique_id=122797539]
 layout_mode = 2
 mouse_filter = 2
+theme_override_constants/separation = 12
 
-[node name="AudioButton" type="CheckButton" parent="MarginContainer2/HBoxContainer" unique_id=1319644542]
+[node name="AudioSlider" type="HSlider" parent="MarginContainer2/HBoxContainer" unique_id=492437942]
+custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_constants/h_separation = 0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_qgmx8")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_f1fl4")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_jqf55")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_byuxr")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_d050y")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_q0uhn")
-theme_override_icons/checked = ExtResource("2_f1fl4")
-theme_override_icons/unchecked = ExtResource("3_jqf55")
-theme_override_icons/checked_disabled = ExtResource("2_f1fl4")
-theme_override_icons/unchecked_disabled = ExtResource("3_jqf55")
-theme_override_icons/checked_mirrored = ExtResource("2_f1fl4")
-theme_override_icons/unchecked_mirrored = ExtResource("3_jqf55")
-theme_override_icons/checked_disabled_mirrored = ExtResource("2_f1fl4")
-theme_override_icons/unchecked_disabled_mirrored = ExtResource("3_jqf55")
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = SubResource("CompressedTexture2D_qgmx8")
+theme_override_icons/grabber_highlight = SubResource("CompressedTexture2D_qgmx8")
+theme_override_styles/slider = SubResource("StyleBoxFlat_vx7wu")
+min_value = -80.0
+max_value = 0.0
+step = 5.0
+value = -20.0
+script = ExtResource("8_r2vy3")
+grabber_normal_icon = ExtResource("3_jqf55")
+grabber_min_icon = ExtResource("2_f1fl4")
 
 [node name="PauseButton" type="CheckButton" parent="MarginContainer2/HBoxContainer" unique_id=161516244]
 layout_mode = 2
@@ -127,5 +132,6 @@ theme_override_icons/unchecked_disabled_mirrored = ExtResource("2_dhe1o")
 script = ExtResource("9_qgmx8")
 popup_layer = NodePath(".")
 
-[connection signal="toggled" from="MarginContainer2/HBoxContainer/AudioButton" to="." method="_on_audio_button_toggled"]
+[connection signal="value_changed" from="MarginContainer2/HBoxContainer/AudioSlider" to="." method="_on_audio_value_changed"]
+[connection signal="value_changed" from="MarginContainer2/HBoxContainer/AudioSlider" to="MarginContainer2/HBoxContainer/AudioSlider" method="_update_grabber_icon"]
 [connection signal="toggled" from="MarginContainer2/HBoxContainer/PauseButton" to="." method="_on_pause_button_toggled"]
