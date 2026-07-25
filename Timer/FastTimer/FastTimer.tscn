@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://rfl77kqrisiw"]
+
+[ext_resource type="SpriteFrames" uid="uid://dgft3bigmtnuh" path="res://Timer/FastTimer/FastTimer.tres" id="1_5m73j"]
+[ext_resource type="Script" uid="uid://77juu5jomxrn" path="res://Timer/TimerSprite2D.gd" id="1_xd2do"]
+[ext_resource type="PackedScene" uid="uid://bv3wpd5idgg55" path="res://Timer/Entry/EntryAnimation.tscn" id="3_3tknj"]
+[ext_resource type="Script" uid="uid://viwv3nmt732c" path="res://Timer/DigitsRenderer.gd" id="3_vx8y6"]
+[ext_resource type="Texture2D" uid="uid://bjeum4yq2anuj" path="res://UI/ScoreDisplay/Digits.png" id="4_whcw3"]
+[ext_resource type="Script" uid="uid://cdj6omqrq3ruq" path="res://Timer/FastTimer/FastTimer.gd" id="6_whcw3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86mg2"]
+size = Vector2(8, 13)
+
+[node name="FastTimer" type="AnimatedSprite2D" unique_id=1990458614]
+sprite_frames = ExtResource("1_5m73j")
+animation = &"release"
+script = ExtResource("1_xd2do")
+metadata/_custom_type_script = "uid://77juu5jomxrn"
+
+[node name="DigitsRenderer" type="Node2D" parent="." unique_id=1501482680]
+modulate = Color(0.34509805, 0.68235296, 0.93333334, 1)
+position = Vector2(10, -3)
+script = ExtResource("3_vx8y6")
+digits_texture = ExtResource("4_whcw3")
+digit_spacing = 1
+min_digits = 4
+metadata/_custom_type_script = "uid://viwv3nmt732c"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=668522948]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=849806462]
+position = Vector2(-24, -0.5)
+shape = SubResource("RectangleShape2D_86mg2")
+
+[node name="EntryAnimation" parent="." unique_id=64887694 instance=ExtResource("3_3tknj")]
+
+[node name="FastTimer" type="Node" parent="." unique_id=143676595]
+script = ExtResource("6_whcw3")
+reset_value = 9001.0
+tick_interval = 0.01
+metadata/_custom_type_script = "uid://cdj6omqrq3ruq"
+
+[connection signal="reset" from="." to="FastTimer" method="press_reset_button"]
+[connection signal="input_event" from="Area2D" to="." method="press_reset_button_area2d"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="on_mouse_exited_reset_button_area2d"]
+[connection signal="value_changed" from="FastTimer" to="DigitsRenderer" method="set_value_f"]
