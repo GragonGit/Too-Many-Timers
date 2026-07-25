@@ -3,8 +3,8 @@
 [ext_resource type="SpriteFrames" uid="uid://btgjwy7kj8jta" path="res://Timer/SimonSaysTimer/SimonSaysTimerAnim.tres" id="1_60bd1"]
 [ext_resource type="Script" uid="uid://77juu5jomxrn" path="res://Timer/TimerSprite2D.gd" id="2_4jaln"]
 [ext_resource type="Script" uid="uid://viwv3nmt732c" path="res://Timer/DigitsRenderer.gd" id="3_auu2t"]
+[ext_resource type="Script" uid="uid://denumyrs367b0" path="res://Timer/SimonSaysTimer/SimonSaysTimer.gd" id="3_hhaal"]
 [ext_resource type="Texture2D" uid="uid://c6tb0mlxupy60" path="res://UI/ScoreDisplay/DigitsLarge.png" id="4_e7bcc"]
-[ext_resource type="Script" uid="uid://dbwsyn35pn7su" path="res://Timer/BaseTimer.gd" id="5_4jaln"]
 [ext_resource type="Script" uid="uid://c0nh5sadlb8uv" path="res://Timer/SimonSaysTimer/SimonSequenceDisplay.gd" id="6_4jaln"]
 [ext_resource type="PackedScene" uid="uid://c04bwwc2y3c3r" path="res://Timer/SimonSaysTimer/SimonButton.tscn" id="6_ylukc"]
 [ext_resource type="Script" uid="uid://cth45hci2klcw" path="res://Timer/SimonSaysTimer/SimonSequenceController.gd" id="7_d6f81"]
@@ -29,7 +29,7 @@ min_digits = 1
 metadata/_custom_type_script = "uid://viwv3nmt732c"
 
 [node name="SimonSaysTimer" type="Node" parent="." unique_id=174428712]
-script = ExtResource("5_4jaln")
+script = ExtResource("3_hhaal")
 reset_value = 5.0
 tick_interval = 10.0
 metadata/_custom_type_script = "uid://dbwsyn35pn7su"
@@ -37,7 +37,7 @@ metadata/_custom_type_script = "uid://dbwsyn35pn7su"
 [node name="SequenceDisplay" type="Node2D" parent="." unique_id=1299039839]
 position = Vector2(-2, 8)
 script = ExtResource("6_4jaln")
-colors = Array[Color]([Color(0.90588236, 0.34901962, 0.32156864, 1), Color(0, 1, 0, 1), Color(0.34509805, 0.68235296, 0.93333334, 1), Color(0.91764706, 0.6862745, 0.3019608, 1)])
+colors = Array[Color]([Color(0.90588236, 0.34901962, 0.32156864, 1), Color(0.26666668, 0.77254903, 0.35686275, 1), Color(0.34509805, 0.68235296, 0.93333334, 1), Color(0.91764706, 0.6862745, 0.3019608, 1)])
 rect_size = Vector2(6, 6)
 rect_spacing = -6.0
 dim_alpha = 0.0
