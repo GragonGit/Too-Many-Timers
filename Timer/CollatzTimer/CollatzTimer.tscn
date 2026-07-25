@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cm0vd5o2j6ha6" path="res://Timer/CollatzTimer/CollatzTimerUI.gd" id="2_6k1rd"]
 [ext_resource type="Script" uid="uid://ds62m1cw67kct" path="res://Timer/CollatzTimer/CollatzTimer.gd" id="3_0ao6s"]
 [ext_resource type="Texture2D" uid="uid://c6tb0mlxupy60" path="res://UI/ScoreDisplay/DigitsLarge.png" id="3_lfr0w"]
+[ext_resource type="PackedScene" uid="uid://bv3wpd5idgg55" path="res://Timer/Entry/EntryAnimation.tscn" id="4_il5xr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_emr4l"]
 size = Vector2(9, 14)
@@ -15,6 +16,8 @@ script = ExtResource("2_6k1rd")
 digits_texture = ExtResource("3_lfr0w")
 digit_size = Vector2i(6, 10)
 metadata/_custom_type_script = "uid://77juu5jomxrn"
+
+[node name="EntryAnimation" parent="." unique_id=64887694 instance=ExtResource("4_il5xr")]
 
 [node name="Area2D" type="Area2D" parent="." unique_id=514671701]
 

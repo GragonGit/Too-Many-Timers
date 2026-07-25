@@ -3,6 +3,7 @@
 [ext_resource type="SpriteFrames" uid="uid://b3pl2b1m4h6j0" path="res://Timer/BufferTimer/BufferTimerAnim.tres" id="1_4vlbq"]
 [ext_resource type="Script" uid="uid://mt0g810jntvs" path="res://Timer/BufferTimer/BufferTimerUI.gd" id="2_emr4l"]
 [ext_resource type="Script" uid="uid://c6nuhbir0x3q6" path="res://Timer/BufferTimer/BufferTimer.gd" id="3_emr4l"]
+[ext_resource type="PackedScene" uid="uid://bv3wpd5idgg55" path="res://Timer/Entry/EntryAnimation.tscn" id="3_kwhjp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_emr4l"]
 size = Vector2(24, 16)
@@ -12,6 +13,8 @@ sprite_frames = ExtResource("1_4vlbq")
 animation = &"release"
 script = ExtResource("2_emr4l")
 metadata/_custom_type_script = "uid://77juu5jomxrn"
+
+[node name="EntryAnimation" parent="." unique_id=64887694 instance=ExtResource("3_kwhjp")]
 
 [node name="Area2D" type="Area2D" parent="." unique_id=514671701]
 

@@ -4,6 +4,7 @@ class_name TimerSprite2D
 signal reset
 
 var is_pressed: bool = false
+var _is_dying: bool = false
 
 func press_reset_button_area2d(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if GameManager._is_game_paused: return
@@ -27,3 +28,15 @@ func on_mouse_exited_reset_button_area2d() -> void:
 		is_pressed = false
 		AudioManager.on_button_up()
 		play("release")
+
+func die() -> void:
+	if _is_dying:
+		return
+	_is_dying = true
+
+	var entry_anim: AnimatedSprite2D = get_node_or_null("EntryAnimation")
+	if entry_anim:
+		entry_anim.play("exit")
+		await entry_anim.animation_finished
+
+	queue_free()

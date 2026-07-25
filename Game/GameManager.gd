@@ -133,7 +133,7 @@ func _clear_spawned_timers() -> void:
 	for timer in _spawned_timers:
 		if is_instance_valid(timer):
 			await wait(1)
-			timer.queue_free()
+			timer.die()
 	_spawned_timers.clear()
 
 func wait(seconds: float) -> void:
