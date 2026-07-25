@@ -13,7 +13,7 @@ var current_value_scaled: float = 0.0
 var _accumulator: float = 0.0
 var _accumulator_scaled: float = 0.0
 var _tick_scale: float = 1.0
-var _is_game_over: bool = false
+var _is_game_over: bool = true
 var _is_game_paused: bool = false
 var _last_spawn: float = 0.0
 
@@ -23,7 +23,6 @@ var _spawned_timers: Array[Node] = []
 
 func _ready() -> void:
 	AudioManager.tick_speed(_tick_scale)
-	AudioManager.start_tick_music()
 	_reset_available_timers()
 
 
