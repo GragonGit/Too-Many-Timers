@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bv3wpd5idgg55"]
+
+[ext_resource type="SpriteFrames" uid="uid://rtt15sjee7jx" path="res://Timer/Entry/EntryAnimation.tres" id="1_wsbdl"]
+
+[node name="EntryAnimation" type="AnimatedSprite2D" unique_id=64887694]
+sprite_frames = ExtResource("1_wsbdl")
+animation = &"entry"
+autoplay = "entry"

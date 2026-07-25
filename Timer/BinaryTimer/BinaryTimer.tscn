@@ -2,10 +2,11 @@
 
 [ext_resource type="SpriteFrames" uid="uid://cpotnlpy3i41u" path="res://Timer/BinaryTimer/BinaryTimer.tres" id="1_n23g6"]
 [ext_resource type="Script" uid="uid://76h345xlas6w" path="res://Timer/BinaryTimer/BinaryTimerUI.gd" id="2_oqvf8"]
+[ext_resource type="PackedScene" uid="uid://bv3wpd5idgg55" path="res://Timer/Entry/EntryAnimation.tscn" id="3_tn688"]
 [ext_resource type="Script" uid="uid://dbwsyn35pn7su" path="res://Timer/BaseTimer.gd" id="4_t83h2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(10, 22)
+size = Vector2(12, 24)
 
 [node name="BinaryTimer" type="AnimatedSprite2D" unique_id=255265836]
 sprite_frames = ExtResource("1_n23g6")
@@ -13,10 +14,12 @@ animation = &"release"
 script = ExtResource("2_oqvf8")
 metadata/_custom_type_script = "uid://77juu5jomxrn"
 
+[node name="EntryAnimation" parent="." unique_id=64887694 instance=ExtResource("3_tn688")]
+
 [node name="Area2D" type="Area2D" parent="." unique_id=448561039]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1600830159]
-position = Vector2(20, 4)
+position = Vector2(22, 4)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="BaseTimer" type="Node" parent="." unique_id=174428712]
