@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cvrauw8t5xyki"]
+
+[ext_resource type="SpriteFrames" uid="uid://btgjwy7kj8jta" path="res://Timer/SimonSaysTimer/SimonSaysTimerAnim.tres" id="1_60bd1"]
+[ext_resource type="Script" uid="uid://cg1nhll3vbip6" path="res://Timer/SimonSaysTimer/SimonSaysTimerUI.gd" id="2_gednb"]
+[ext_resource type="Script" uid="uid://viwv3nmt732c" path="res://Timer/DigitsRenderer.gd" id="3_auu2t"]
+[ext_resource type="Script" uid="uid://denumyrs367b0" path="res://Timer/SimonSaysTimer/SimonSaysTimer.gd" id="3_hhaal"]
+[ext_resource type="Texture2D" uid="uid://c6tb0mlxupy60" path="res://UI/ScoreDisplay/DigitsLarge.png" id="4_e7bcc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(11, 11)
+
+[node name="SimonSaysTimer" type="AnimatedSprite2D" unique_id=1974070622]
+sprite_frames = ExtResource("1_60bd1")
+animation = &"release"
+script = ExtResource("2_gednb")
+metadata/_custom_type_script = "uid://77juu5jomxrn"
+
+[node name="DigitsRenderer" type="Node2D" parent="." unique_id=21958457]
+position = Vector2(4, -18)
+script = ExtResource("3_auu2t")
+digits_texture = ExtResource("4_e7bcc")
+digit_size = Vector2i(6, 10)
+digit_spacing = 0
+min_digits = 1
+metadata/_custom_type_script = "uid://viwv3nmt732c"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=448561039]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1600830159]
+position = Vector2(-4.5, 5.5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="SimonSaysTimer" type="Node" parent="." unique_id=174428712]
+script = ExtResource("3_hhaal")
+reset_value = 5.0
+tick_interval = 5.0
+metadata/_custom_type_script = "uid://dbwsyn35pn7su"
+
+[connection signal="reset" from="." to="SimonSaysTimer" method="press_reset_button"]
+[connection signal="input_event" from="Area2D" to="." method="press_reset_button_area2d"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="on_mouse_exited_reset_button_area2d"]
+[connection signal="value_changed" from="SimonSaysTimer" to="DigitsRenderer" method="set_value_f"]

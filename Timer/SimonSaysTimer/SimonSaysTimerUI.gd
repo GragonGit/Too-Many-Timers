@@ -1,0 +1,1 @@
+extends TimerSprite2D

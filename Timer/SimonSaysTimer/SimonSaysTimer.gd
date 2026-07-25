@@ -1,0 +1,2 @@
+extends BaseTimer
+class_name SimonSaysTimer
