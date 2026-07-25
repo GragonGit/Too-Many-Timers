@@ -1,0 +1,31 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bslj8gi8kw5rc"]
+
+[ext_resource type="Texture2D" uid="uid://bftlkb3de1fi1" path="res://Timer/SimonSaysTimer/SimonSaysTimerButtons.png" id="1_b3i10"]
+[ext_resource type="Texture2D" uid="uid://livak0pwf3ms" path="res://Timer/SimonSaysTimer/SimonSaysTimer.png" id="2_4sr4q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3i10"]
+atlas = ExtResource("1_b3i10")
+region = Rect2(30, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvfgg"]
+atlas = ExtResource("2_4sr4q")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3i10")
+}],
+"loop": 1,
+"name": &"press",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvfgg")
+}],
+"loop": 1,
+"name": &"release",
+"speed": 5.0
+}]
