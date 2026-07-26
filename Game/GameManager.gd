@@ -67,6 +67,7 @@ func reset() -> void:
 func game_over() -> void:
 	if _is_game_over: return
 	_is_game_over = true
+	ScoreManager._save_high_score()
 	AudioManager.on_game_over()
 	await wait(4)
 	reset()

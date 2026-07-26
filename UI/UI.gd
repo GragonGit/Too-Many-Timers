@@ -3,6 +3,7 @@ extends Control
 func _ready() -> void:
 	ScoreManager.score_changed.connect(_on_score_changed)
 	ScoreManager.high_score_changed.connect(_on_high_score_changed)
+	_on_high_score_changed(ScoreManager.high_score)
 
 func _on_score_changed(value: int) -> void:
 	$Score.set_value(value)
