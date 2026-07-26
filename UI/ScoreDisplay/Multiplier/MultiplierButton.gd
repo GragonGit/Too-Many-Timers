@@ -42,7 +42,8 @@ func reset() -> void:
 		AudioManager.on_button_up()
 		play("release")
 		await animation_finished
-	$BottomEntryAnimation.play("exit")
+	if _is_opened:
+		$BottomEntryAnimation.play("exit")
 	$Area2D.input_pickable = false
 	_is_pressed = false
 	_is_opened = false
