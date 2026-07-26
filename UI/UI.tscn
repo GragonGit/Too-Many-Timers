@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cwmkmnd5kp1q2" path="res://UI/Audio/AudioOff.png" id="2_f1fl4"]
 [ext_resource type="Texture2D" uid="uid://cg4gyw7t72vrv" path="res://UI/Pause/Play.png" id="2_q0uhn"]
 [ext_resource type="Texture2D" uid="uid://50fnlot8l4e3" path="res://UI/Audio/AudioOn.png" id="3_jqf55"]
+[ext_resource type="Texture2D" uid="uid://kh4ubsgcjgae" path="res://UI/BGLights.png" id="3_qhxh2"]
 [ext_resource type="Texture2D" uid="uid://c3w324wrfwppp" path="res://UI/StartLabel.png" id="3_vx7wu"]
+[ext_resource type="Script" uid="uid://cyigd8j2pvbdu" path="res://UI/Lamps.gd" id="4_017wa"]
 [ext_resource type="Texture2D" uid="uid://gxmgulqvp7ha" path="res://UI/Background.png" id="8_d050y"]
 [ext_resource type="Script" uid="uid://dfweepvpg8bg5" path="res://UI/Slider.gd" id="8_r2vy3"]
 [ext_resource type="Script" uid="uid://n5nxt8rkego" path="res://UI/ScoreDisplay/ScorePopupCanvas.gd" id="9_qgmx8"]
@@ -41,13 +43,22 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_jqf55")
 
-[node name="Background" type="TextureRect" parent="." unique_id=1842584859]
+[node name="Background" type="Node" parent="." unique_id=1111315741]
+
+[node name="Background" type="TextureRect" parent="Background" unique_id=1842584859]
 z_index = -1
-layout_mode = 0
 offset_right = 576.0
 offset_bottom = 324.0
 mouse_filter = 2
 texture = ExtResource("8_d050y")
+
+[node name="Lamps" type="TextureRect" parent="Background" unique_id=1882072431]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("3_qhxh2")
+stretch_mode = 2
+script = ExtResource("4_017wa")
 
 [node name="StartLabel" type="TextureRect" parent="." unique_id=294136885]
 z_index = -1

@@ -10,6 +10,9 @@ const TICK_INTERVAL: float = 1.0
 @export var tick_scale_increase: float = 0.1
 var main_timer: Node
 var rubber_duck: Node
+var lamps: TextureRect
+var _lamp_tween: Tween
+var _target_lamp_color: Color = Color("ffffff")
 
 var current_value: float = 0.0
 var current_value_scaled: float = 0.0
@@ -88,6 +91,8 @@ func _tick() -> void:
 	if _should_spawn():
 		_spawn_random_timer()
 		_last_spawn = current_value
+	
+	_update_lamp_color()
 
 func _tick_scaled() -> void:
 	current_value_scaled += TICK_INTERVAL
@@ -144,3 +149,16 @@ func _clear_spawned_timers() -> void:
 
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
+
+func _update_lamp_color() -> void:
+	var new_color: Color = Color("e75952") if _tick_scale > 1 else Color("ffffff")
+	if new_color == _target_lamp_color:
+		return
+	_target_lamp_color = new_color
+	
+	if _lamp_tween and _lamp_tween.is_valid():
+		_lamp_tween.kill()
+	
+	_lamp_tween = create_tween()
+	_lamp_tween.tween_property(lamps, "self_modulate", _target_lamp_color, 0.5) \
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
