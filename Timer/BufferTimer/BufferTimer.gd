@@ -8,4 +8,4 @@ func _on_reset_pressed() -> void:
 	reset_pressed.emit(current_value)
 	
 func _calculate_score(old_value: float) -> int:
-	return roundi(reset_value - old_value)
+	return roundi(reset_value - old_value) * 20

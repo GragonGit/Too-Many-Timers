@@ -4,8 +4,8 @@ class_name ScorePopup
 @export var rise_distance: float = 2.0
 @export var duration: float = 1
 @export var drift_range: float = 10.0
-@export var scale_threshold: int = 50
-@export var scale_max_value: int = 1500
+@export var scale_threshold: int = 500
+@export var scale_max_value: int = 10000
 @export var max_scale: float = 4.0
 
 @onready var digits_renderer: DigitsRenderer = $DigitsRenderer

@@ -18,7 +18,7 @@ func _should_trigger_game_over(value: float) -> bool:
 	return absf(value) >= max_value
 
 func _calculate_score(old_value: float) -> int:
-	return roundi(abs(current_value) * sign(abs(old_value) - abs(current_value)))
+	return roundi(abs(current_value) * sign(abs(old_value) - abs(current_value))) * 20
 
 func _push(amount: float) -> void:
 	if !is_active(): return
