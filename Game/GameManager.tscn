@@ -55,3 +55,4 @@ metadata/_custom_type_script = "uid://7xrg387n3kba"
 [node name="GameManager" type="Node" unique_id=841355517]
 script = ExtResource("1_xnxdg")
 timers = Array[ExtResource("2_nhenp")]([SubResource("Resource_emr4l"), SubResource("Resource_hj6tj"), SubResource("Resource_vg8fj"), SubResource("Resource_whrny"), SubResource("Resource_lquwl"), SubResource("Resource_27p2c"), SubResource("Resource_1bvp3")])
+tick_scale_increase = 0.05
