@@ -1,5 +1,7 @@
 extends Node
 
+signal reset_game
+
 const TICK_INTERVAL: float = 1.0
 
 @export var timers: Array[TimerSpawnData] = []
@@ -54,6 +56,7 @@ func reset() -> void:
 	_accumulator = 0.0
 	_accumulator_scaled = 0.0
 	_last_spawn = 0.0
+	reset_game.emit()
 	await _clear_spawned_timers()
 	_reset_available_timers()
 	AudioManager.tick_speed(_tick_scale)
@@ -134,8 +137,8 @@ func _spawn_random_timer() -> void:
 func _clear_spawned_timers() -> void:
 	for timer in _spawned_timers:
 		if is_instance_valid(timer):
-			await wait(1)
 			timer.die()
+			await wait(1)
 	_spawned_timers.clear()
 
 func wait(seconds: float) -> void:

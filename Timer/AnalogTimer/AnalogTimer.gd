@@ -17,11 +17,6 @@ func _calculate_next_value(value: float) -> float:
 func _should_trigger_game_over(value: float) -> bool:
 	return absf(value) >= max_value
 
-func _on_reset_pressed() -> void:
-	var old_value = abs(current_value)
-	ScoreManager.add_score(_calculate_score(old_value))
-	reset_pressed.emit(current_value)
-
 func _calculate_score(old_value: float) -> int:
 	return roundi(abs(current_value) * sign(abs(old_value) - abs(current_value)))
 

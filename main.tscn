@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://kmmjj2ittgkw" path="res://Timer/DigitalClock/DigitalClock.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://46hvkn8vq4lr" path="res://UI/UI.tscn" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://bw2px55r4rtea" path="res://Timer/TimerParent.gd" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dst6nh5ywtcmk" path="res://UI/ScoreDisplay/Multiplier/MultiplierButton.tscn" id="4_lquwl"]
+[ext_resource type="Texture2D" uid="uid://ctids4syoe1a0" path="res://UI/ScoreDisplay/Multiplier/MultiplierLabels.png" id="5_7mycd"]
 
 [node name="Game" type="Node" unique_id=884841435]
 
@@ -17,5 +19,54 @@ position = Vector2(288, 168)
 
 [node name="Timers" type="Node" parent="Scene" unique_id=1373838740]
 script = ExtResource("2_h2yge")
+
+[node name="Multiplier" type="Node" parent="Scene" unique_id=564233134]
+
+[node name="MultiplierButton2" parent="Scene/Multiplier" unique_id=714319479 instance=ExtResource("4_lquwl")]
+position = Vector2(392, 278)
+reset_wait = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene/Multiplier/MultiplierButton2" unique_id=1526413325]
+position = Vector2(2, 22)
+texture = ExtResource("5_7mycd")
+hframes = 4
+
+[node name="MultiplierButton4" parent="Scene/Multiplier" unique_id=1231491017 instance=ExtResource("4_lquwl")]
+position = Vector2(424, 278)
+score_threshold = 50000
+score_multiplier_threshold = 2
+score_multiplier = 4
+reset_wait = 1.5
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene/Multiplier/MultiplierButton4" unique_id=145148346]
+position = Vector2(2, 22)
+texture = ExtResource("5_7mycd")
+hframes = 4
+frame = 1
+
+[node name="MultiplierButton8" parent="Scene/Multiplier" unique_id=712956634 instance=ExtResource("4_lquwl")]
+position = Vector2(456, 278)
+score_threshold = 100000
+score_multiplier_threshold = 4
+score_multiplier = 8
+reset_wait = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene/Multiplier/MultiplierButton8" unique_id=354958461]
+position = Vector2(2, 22)
+texture = ExtResource("5_7mycd")
+hframes = 4
+frame = 2
+
+[node name="MultiplierButton16" parent="Scene/Multiplier" unique_id=1421159044 instance=ExtResource("4_lquwl")]
+position = Vector2(488, 278)
+score_threshold = 500000
+score_multiplier_threshold = 8
+score_multiplier = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene/Multiplier/MultiplierButton16" unique_id=1832626664]
+position = Vector2(2, 22)
+texture = ExtResource("5_7mycd")
+hframes = 4
+frame = 3
 
 [node name="Ui" parent="." unique_id=703720092 instance=ExtResource("2_0xm2m")]

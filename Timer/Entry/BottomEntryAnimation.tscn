@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dlx26ihsf2bn1"]
+
+[ext_resource type="SpriteFrames" uid="uid://cox5pbcien5bj" path="res://Timer/Entry/BottomEntryAnimation.tres" id="1_df6ru"]
+
+[node name="BottomEntryAnimation" type="AnimatedSprite2D" unique_id=877289242]
+sprite_frames = ExtResource("1_df6ru")
+animation = &"entry"
+autoplay = "entry"

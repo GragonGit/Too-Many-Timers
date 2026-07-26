@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dst6nh5ywtcmk"]
+
+[ext_resource type="SpriteFrames" uid="uid://d2fh3l2gwlvde" path="res://UI/ScoreDisplay/Multiplier/Multiplier.tres" id="1_krued"]
+[ext_resource type="Script" uid="uid://b4rjqu25hkfm8" path="res://UI/ScoreDisplay/Multiplier/MultiplierButton.gd" id="2_w7cte"]
+[ext_resource type="PackedScene" uid="uid://dlx26ihsf2bn1" path="res://Timer/Entry/BottomEntryAnimation.tscn" id="3_phktg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_86mg2"]
+
+[node name="MultiplierButton" type="AnimatedSprite2D" unique_id=714319479]
+sprite_frames = ExtResource("1_krued")
+animation = &"release"
+frame = 3
+script = ExtResource("2_w7cte")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=63822820]
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1638804739]
+shape = SubResource("CircleShape2D_86mg2")
+
+[node name="BottomEntryAnimation" parent="." unique_id=877289242 instance=ExtResource("3_phktg")]
+autoplay = ""
+
+[connection signal="input_event" from="Area2D" to="." method="press_button_area2d"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
