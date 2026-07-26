@@ -29,4 +29,4 @@ func _push(amount: float) -> void:
 	reset_pressed.emit(current_value)
 
 	if _should_trigger_game_over(current_value):
-		GameManager.game_over()
+		GameManager.game_over(get_parent().position)

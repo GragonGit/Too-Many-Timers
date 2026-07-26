@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bxlfjvftcukxa"]
+
+[ext_resource type="Script" uid="uid://ddbo3coyccd6g" path="res://UI/Vignette/VignetteManager.gd" id="1_piyr0"]
+[ext_resource type="Material" uid="uid://fyvf7v0udank" path="res://UI/Vignette/VignetteShaderMaterial.tres" id="2_qy62t"]
+
+[node name="VignetteManager" type="CanvasLayer" unique_id=1819584551]
+script = ExtResource("1_piyr0")
+safe_rect_world = Rect2(64, 64, 448, 260)
+
+[node name="VignetteRect" type="ColorRect" parent="." unique_id=378438745]
+material = ExtResource("2_qy62t")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

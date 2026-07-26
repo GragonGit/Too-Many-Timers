@@ -89,7 +89,7 @@ func _tick() -> void:
 	_set_value(next_value)
 
 	if _should_trigger_game_over(current_value):
-		GameManager.game_over()
+		GameManager.game_over(get_parent().position)
 
 func _set_value(new_value: float) -> void:
 	current_value = new_value

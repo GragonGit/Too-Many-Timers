@@ -16,6 +16,9 @@ var speed_tween: Tween
 var mute_tween: Tween
 var using_scaled_music := false
 
+func _ready() -> void:
+	GameManager.tick_scale_changed.connect(tick_speed)
+
 func start_tick_music() -> void:
 	tick_music.play()
 
@@ -37,12 +40,12 @@ func tick_music_paused(paused: bool) -> void:
 		active_player.stream_paused = false
 
 func tick_speed(target_speed: float, duration: float = 1.0) -> void:
+	if target_speed == 1.0: return
 	if speed_tween:
 		speed_tween.kill()
 
-	var should_use_scaled := target_speed != 1.0
-	if should_use_scaled != using_scaled_music:
-		_switch_active_player(should_use_scaled)
+	if !using_scaled_music:
+		_switch_active_player(true)
 
 	speed_tween = create_tween()
 	speed_tween.tween_method(
@@ -82,6 +85,8 @@ func on_game_over() -> void:
 	tick_music.stop()
 	tick_music_scaled.stop()
 	take_your_time.stop()
+	if speed_tween:
+		speed_tween.kill()
 	_apply_speed(1)
 	if using_scaled_music:
 		using_scaled_music = false

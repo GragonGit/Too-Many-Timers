@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://fyvf7v0udank"]
+
+[ext_resource type="Shader" uid="uid://yk8wg7iutcxc" path="res://UI/Vignette/Vignette.gdshader" id="1_e07me"]
+
+[resource]
+shader = ExtResource("1_e07me")
+shader_parameter/rect_alpha = 0.0
+shader_parameter/rect_pos = Vector2(0, 0)
+shader_parameter/rect_size = Vector2(0, 0)
+shader_parameter/spot_alpha = 0.0
+shader_parameter/spot_pos = Vector2(0, 0)
+shader_parameter/spot_radius = 0.0
+shader_parameter/edge_softness = 1.0

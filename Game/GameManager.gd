@@ -1,6 +1,7 @@
 extends Node
 
 signal reset_game
+signal tick_scale_changed(scale: float)
 
 const TICK_INTERVAL: float = 1.0
 
@@ -23,6 +24,7 @@ var _accumulator_scaled: float = 0.0
 var _tick_scale: float = 1.0
 var _is_game_over: bool = true
 var _is_game_paused: bool = false
+@onready var _spawn_interval: float = spawn_interval
 var _last_spawn: float = 0.0
 
 var _available_indices: Array[int] = []
@@ -57,22 +59,22 @@ func is_game_active() -> bool:
 func reset() -> void:
 	current_value = 0.0
 	current_value_scaled = 0.0
-	_tick_scale = 1.0
+	_set_tick_scale(1.0)
 	_accumulator = 0.0
 	_accumulator_scaled = 0.0
 	_last_spawn = 0.0
-	spawn_interval = 15
+	_spawn_interval = spawn_interval
 	reset_game.emit()
 	await _clear_spawned_timers()
 	_reset_available_timers()
-	AudioManager.tick_speed(_tick_scale)
 	main_timer.connect("reset", retry)
 	rubber_duck.reset()
 	(main_timer.get_node("BaseTimer") as BaseTimer).restart()
 
-func game_over() -> void:
+func game_over(position: Vector2) -> void:
 	if _is_game_over: return
 	_is_game_over = true
+	VignetteManager.on_game_over(position, 48)
 	ScoreManager._save_high_score()
 	AudioManager.on_game_over()
 	await wait(4)
@@ -84,6 +86,7 @@ func retry() -> void:
 	_is_game_over = false
 	main_timer.reset.emit()
 	ScoreManager.reset_score()
+	VignetteManager.reset()
 
 func game_pause(paused: bool) -> void:
 	_is_game_paused = paused
@@ -93,7 +96,7 @@ func _tick() -> void:
 	current_value += TICK_INTERVAL
 	if _should_spawn():
 		_spawn_random_timer()
-		spawn_interval += spawn_interval_scale
+		_spawn_interval += spawn_interval_scale
 		_last_spawn = current_value
 	
 	_update_lamp_color()
@@ -102,13 +105,15 @@ func _tick_scaled() -> void:
 	current_value_scaled += TICK_INTERVAL
 	ScoreManager.add_score(1)
 
-func _increase_difficulty() -> void:
-	_tick_scale += tick_scale_increase
-	AudioManager.tick_speed(_tick_scale)
+func _set_tick_scale(tick_scale: float) -> void:
+	_tick_scale = tick_scale
+	tick_scale_changed.emit(_tick_scale)
 
+func _increase_difficulty() -> void:
+	_set_tick_scale(_tick_scale + tick_scale_increase)
 
 func _should_spawn() -> bool:
-	return current_value - _last_spawn > spawn_interval
+	return current_value - _last_spawn > _spawn_interval
 
 
 func _reset_available_timers() -> void:
@@ -127,9 +132,7 @@ func _spawn_random_timer() -> void:
 	_available_indices.remove_at(random_pos)
 
 	var spawn_data: TimerSpawnData = timers[timer_index]
-	if spawn_data == null || spawn_data.timer_scene == null:
-		push_warning("TimerSpawnData an Index %d ist unvollstaendig." % timer_index)
-		return
+	if spawn_data == null || spawn_data.timer_scene == null: return
 
 	var timer: Node = spawn_data.timer_scene.instantiate()
 
@@ -138,8 +141,6 @@ func _spawn_random_timer() -> void:
 
 	if "position" in timer:
 		timer.position = spawn_data.position
-	else:
-		push_warning("Timer-Node hat keine 'position'-Property (kein Node2D/Control).")
 
 	_spawned_timers.append(timer)
 
