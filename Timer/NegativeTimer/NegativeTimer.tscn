@@ -17,7 +17,6 @@ script = ExtResource("2_27p2c")
 metadata/_custom_type_script = "uid://77juu5jomxrn"
 
 [node name="DigitsRenderer" type="Node2D" parent="." unique_id=1795638572]
-modulate = Color(0.15497425, 0.633033, 0.6547462, 1)
 position = Vector2(4, -2)
 script = ExtResource("3_0wwpi")
 digits_texture = ExtResource("4_r3304")
