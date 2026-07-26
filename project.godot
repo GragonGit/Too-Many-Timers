@@ -10,10 +10,13 @@ config_version=5
 
 [application]
 
-config/name="GMTK-Jam-2026"
+config/name="Too Many Timers"
 run/main_scene="uid://b1mm3o80v4b8y"
 config/features=PackedStringArray("4.7", "Forward Plus")
+boot_splash/use_filter=false
+boot_splash/image="uid://bk65sx1k4x14a"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=2000
 
 [audio]
 
