@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c3w324wrfwppp" path="res://UI/StartLabel.png" id="3_vx7wu"]
 [ext_resource type="Script" uid="uid://cyigd8j2pvbdu" path="res://UI/Lamps.gd" id="4_017wa"]
 [ext_resource type="Texture2D" uid="uid://c8vhbu2pg0do7" path="res://UI/Honse.png" id="5_npmjx"]
+[ext_resource type="Texture2D" uid="uid://c6ypes1v46jlh" path="res://UI/Title.png" id="6_6q2ik"]
 [ext_resource type="Texture2D" uid="uid://gxmgulqvp7ha" path="res://UI/Background.png" id="8_d050y"]
 [ext_resource type="Script" uid="uid://dfweepvpg8bg5" path="res://UI/Slider.gd" id="8_r2vy3"]
 [ext_resource type="Script" uid="uid://n5nxt8rkego" path="res://UI/ScoreDisplay/ScorePopupCanvas.gd" id="9_qgmx8"]
@@ -62,12 +63,20 @@ stretch_mode = 2
 script = ExtResource("4_017wa")
 
 [node name="Honse" type="TextureRect" parent="Background" unique_id=724813335]
-offset_left = 10.0
-offset_top = 270.0
-offset_right = 74.0
-offset_bottom = 334.0
-scale = Vector2(0.5, 0.5)
+offset_left = -42.0
+offset_top = 263.0
+offset_right = 22.0
+offset_bottom = 327.0
 texture = ExtResource("5_npmjx")
+stretch_mode = 2
+
+[node name="Title" type="TextureRect" parent="Background" unique_id=1263727187]
+offset_left = 231.0
+offset_top = 71.0
+offset_right = 467.0
+offset_bottom = 91.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_6q2ik")
 stretch_mode = 2
 
 [node name="StartLabel" type="TextureRect" parent="." unique_id=294136885]
