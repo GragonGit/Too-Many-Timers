@@ -24,6 +24,7 @@ script = ExtResource("2_h2yge")
 
 [node name="MultiplierButton2" parent="Scene/Multiplier" unique_id=714319479 instance=ExtResource("4_lquwl")]
 position = Vector2(392, 278)
+score_threshold = 5000
 reset_wait = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Scene/Multiplier/MultiplierButton2" unique_id=1526413325]
@@ -33,7 +34,6 @@ hframes = 4
 
 [node name="MultiplierButton4" parent="Scene/Multiplier" unique_id=1231491017 instance=ExtResource("4_lquwl")]
 position = Vector2(424, 278)
-score_threshold = 50000
 score_multiplier_threshold = 2
 score_multiplier = 4
 reset_wait = 1.5
@@ -46,7 +46,7 @@ frame = 1
 
 [node name="MultiplierButton8" parent="Scene/Multiplier" unique_id=712956634 instance=ExtResource("4_lquwl")]
 position = Vector2(456, 278)
-score_threshold = 100000
+score_threshold = 20000
 score_multiplier_threshold = 4
 score_multiplier = 8
 reset_wait = 1.0
@@ -59,7 +59,7 @@ frame = 2
 
 [node name="MultiplierButton16" parent="Scene/Multiplier" unique_id=1421159044 instance=ExtResource("4_lquwl")]
 position = Vector2(488, 278)
-score_threshold = 500000
+score_threshold = 40000
 score_multiplier_threshold = 8
 score_multiplier = 16
 
