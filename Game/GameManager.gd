@@ -7,7 +7,9 @@ const TICK_INTERVAL: float = 1.0
 @export var timers: Array[TimerSpawnData] = []
 @export var spawn_parent: Node = null
 @export var spawn_interval: int = 15
+@export var spawn_interval_scale: int = 5
 @export var tick_scale_increase: float = 0.1
+
 var main_timer: Node
 var rubber_duck: Node
 var lamps: TextureRect
@@ -59,6 +61,7 @@ func reset() -> void:
 	_accumulator = 0.0
 	_accumulator_scaled = 0.0
 	_last_spawn = 0.0
+	spawn_interval = 15
 	reset_game.emit()
 	await _clear_spawned_timers()
 	_reset_available_timers()
@@ -90,6 +93,7 @@ func _tick() -> void:
 	current_value += TICK_INTERVAL
 	if _should_spawn():
 		_spawn_random_timer()
+		spawn_interval += spawn_interval_scale
 		_last_spawn = current_value
 	
 	_update_lamp_color()
