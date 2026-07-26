@@ -97,6 +97,7 @@ func _tick() -> void:
 	if _should_spawn():
 		_spawn_random_timer()
 		_spawn_interval += spawn_interval_scale
+		_spawn_interval = min(_spawn_interval, 30)
 		_last_spawn = current_value
 	
 	_update_lamp_color()

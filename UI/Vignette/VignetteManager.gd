@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @export var safe_rect_world: Rect2 = Rect2()
 @export var min_scale: float = 1.0
-@export var max_scale: float = 2.0
+@export var max_scale: float = 1.5
 @export var max_vignette_alpha: float = 0.7
 @export var vignette_tween_duration: float = 0.3
 
